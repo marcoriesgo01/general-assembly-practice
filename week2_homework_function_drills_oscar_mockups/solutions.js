@@ -25,3 +25,23 @@ const sumArray = (arr) => {
 
 console.log(sumArray([1, 2, 3, 4, 5, 6, 7]));
 
+// Prime Numbers
+const checkPrime = (num) => {
+    for(i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        };
+    };
+    return true;
+};
+console.log(checkPrime(10));
+
+const printPrimes = (limitNum) => {
+    for (let i = 0; i <= limitNum; i++) {
+        if(checkPrime(i)) {
+            console.log(i);
+        };
+    };
+};
+printPrimes(46);
+
