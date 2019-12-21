@@ -1,6 +1,6 @@
 
 
-h1 {
+.hero h1 {
     color: white;
     font-size: 58px;
 }
@@ -10,10 +10,11 @@ h1 {
     width: 100%;
 }
 
-p {
+.hero p {
     font-size: 24px;
     font-family: sans-serif;
     color: white;
+    margin-bottom: 45px;
 }
 
 .hero .container {
@@ -26,9 +27,60 @@ p {
     color: #3842d2;
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .float-left {
     float: left;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    padding-left: 10px;
+}
+
+body {
+    margin: 0px 0px 0px 0px;
+}
+
+.main {
+    width: 100%;
+    align-content: center;
+}
+
+.main img {
+    width: 90%;
+    height: auto;
+}
+
+.main div {
+    width: 25%;
+    text-align: center;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.main h3 {
+    margin: 40px;
+}
+
+.main h4 {
+    color: grey;
+    margin-top: 40px;
+}
+
+.button2 {
+    color: grey;
+    text-decoration: none;
+    border-style: solid;
+    border-color: grey;
+    padding: 10px 20px 10px 20px;
+    border-radius: 8px;
+    margin: 50px;
 }
