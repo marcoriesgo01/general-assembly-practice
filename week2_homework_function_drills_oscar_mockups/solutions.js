@@ -45,3 +45,42 @@ const printPrimes = (limitNum) => {
 };
 printPrimes(46);
 
+// Rock Paper Scissors
+const randomMove = () => {
+    const moveArray = ["rock", "paper", "scissors"];
+    const randomNumber = Math.floor(Math.random() * (moveArray.length));
+    console.log(randomNumber);
+    return moveArray[randomNumber];
+}
+
+let computerMove = randomMove();
+let userMove = randomMove();
+
+const rockPaperScissors = (computerMove, userMove) => {
+    console.log("Computer chose " + computerMove);
+    console.log("User chose " + userMove);
+    if (computerMove === userMove) {
+        console.log("It's a tie!");
+    } else if(computerMove === "rock") {
+        if(userMove === "paper") {
+            console.log("paper beats rock, user wins");
+        } else if(userMove === "scissors") {
+            console.log("rock beats scissors, computer wins");
+        };
+    } else if(computerMove === "paper") {
+        if(userMove === "rock") {
+            console.log("paper beats rock, computer wins");
+        } else if(userMove === "scissors") {
+            console.log("scissors beat paper, user wins");
+        };
+    } else {
+        if(userMove === "rock") {
+            console.log("rock beats scissors, user wins");
+        } else if(userMove === "paper") {
+            console.log("scissors beat paper, computer wins")
+        };
+    };
+};
+
+rockPaperScissors(computerMove, userMove);
+
