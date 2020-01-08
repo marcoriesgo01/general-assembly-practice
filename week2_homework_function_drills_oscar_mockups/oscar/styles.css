@@ -27,10 +27,11 @@
     color: #3842d2;
     background-color: white;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 30px;
     font-size: 18px;
     text-decoration: none;
     font-weight: 500;
+    padding: 15px 20px 15px 20px;
 }
 
 .float-left {
