@@ -20,8 +20,8 @@ Data structure example: const phoenixRising = ["Marco", "Ira"];
 Datatype: object array
 Data structure example: const PhoenixRising = [
     {
-        "name": "name",
-        "location": "location"
+        name: "name",
+        location: "location"
     }
 ];
 
@@ -29,9 +29,21 @@ Data structure example: const PhoenixRising = [
 Datatype: object array with an inner array
 Data structure example: const PhoenixRising = [
     {
-        "name": "name",
-        "location": "location",
-        "favoriteShows": ["show name", "show name"]
+        name: "name",
+        location: "location",
+        favoriteShows: ["show name", "show name"]
     }
 ];
 */
+
+// Take it Easy
+const rainbow = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+console.log(rainbow[4]);
+
+const marcoRiesgo = {
+    favoriteFood: "sushi",
+    hobby: "reading",
+    location: "Los Angeles",
+    favoriteDatatype: "string" 
+}
+console.log(marcoRiesgo.hobby);
