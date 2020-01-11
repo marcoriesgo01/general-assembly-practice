@@ -6,13 +6,12 @@ body {
     text-align: center;
     color: white;
     letter-spacing: 1px;
-    height: auto;
 }
 
 #sailboat {
     display: block;
     width: 100%;
-    height: auto;
+    height: 720px;
 }
 
 .centered  {
@@ -100,10 +99,18 @@ li {
 }
 
 #banner {
-    margin: 30px 0px 30px 15px;
+    margin: 30px 0px 30px 4%;
+    font-style: italic;
 }
 
 footer {
     margin-top: 15px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+footer img {
+    height: 45px;
+    width: auto;
 }
