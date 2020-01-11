@@ -36,6 +36,8 @@ body {
 
 #rows  {
     margin-left: flex;
+    display: flex;
+    justify-content: center;
 }
 
 #rows section {
