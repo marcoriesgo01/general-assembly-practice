@@ -1,5 +1,6 @@
 //Section 2 Combining Datatypes:
 
+//Combine objects, arrays, and functions:
 // 1.
 const crayonBox = {
     crayolaColors: ["black", "brick", "brown", "chestnut", "cerulean", "indigo"]
@@ -41,3 +42,31 @@ const aparttmentBuilding = [
 ];
 console.log(aparttmentBuilding[1][1]);
 
+// Combine objects, arrays, and functions more than one level deep:
+// 1.
+const knit = () => {
+    return {
+        item: "scarf",
+        size: "6ft",
+        color: "red"
+    };
+};
+console.log(knit().size);
+
+// 2.
+const crayonSelector = () => {
+    return {
+        crayolaColors: ["black", "brick", "brown", "chestnut", "cerulean", "indigo"],
+        numberOfCrayons: 6
+    };
+};
+console.log(crayonSelector().crayolaColors[2]);
+
+// 3.
+const powerButton = () => {
+    return options();
+}
+const options = () => {
+    console.log("Select a song.");
+}
+powerButton();
