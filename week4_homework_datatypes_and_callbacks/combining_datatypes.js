@@ -70,3 +70,76 @@ const options = () => {
     console.log("Select a song.");
 }
 powerButton();
+
+// Model a vending machine: 
+const vendingMachine = {
+    snacks: [
+        {
+            name: "Doritos",
+            price: 1.99
+        },
+        {
+            name: "Munchies",
+            price: 1.25
+        },
+        {
+            name: "Snickers",
+            price: 1.50
+        }
+    ],
+    vend (inputs) {
+        console.log("Vending " + vendingMachine.snacks[inputs].name);
+    }
+};
+vendingMachine.vend(2);
+
+// Callbacks:
+// 1.
+function add (x, y) {
+    return x + y;
+};
+
+// 2.
+function subtract (x, y) {
+    return x - y;
+};
+
+// 3.
+function multiply (x, y) {
+    return x * y;
+};
+
+// 4.
+function divide (x, y) {
+    return x/y;
+};
+
+// 5.
+const calculate = (num, operation) => {
+    return operation(num);
+};
+// 6.
+let divideByTwo = num => num/2;
+let multiplyNumbersByFour = num => num * 4;
+let cubedNumber = num => num * num * num;
+let subtractNumberByTwo = num => num - 2;
+// 7.
+calculate(20, divideByTwo);
+calculate(14, multiplyNumbersByFour);
+calculate(46, cubedNumber);
+calculate(23, subtractNumberByTwo);
+
+// Function Definition Placement - Corrected Code:
+const bar = () => {
+    console.log('bar here');
+};
+const foo = () => {
+    console.log('foo here');
+};
+bar();
+foo();
+
+// Error Reading:
+// The error of "" the incorrect code produces simply means that there is a missing equal sign when declaring the function - between the "foo" and the parentheses "()".
+// Correction of the line:
+// const foo = () => {
