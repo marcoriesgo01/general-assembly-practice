@@ -4,7 +4,7 @@ let playerShip = {
     firepower: 5,
     accuracy: 0.7,
     // Methods for battle:
-    attack: enemyShip => {
+    attack(enemyShip) {
         console.log("Player attacking Alien ship");
         // Check for hit success based on Player Ship accuracy:
         if (Math.random() < playerShip.accuracy){
@@ -31,7 +31,7 @@ class AlienShip {
         if(Math.random() < this.accuracy) {
             console.log("Alien ship hit player!")
             playerShip.hull -= this.firepower;
-            console.log(`Player Ship hull remaining: ${playerShip.hull}`);
+            console.log("Player Ship hull remaining: " + playerShip.hull);
         } else {
             console.log("Alien ship missed.");
         }
@@ -41,51 +41,47 @@ class AlienShip {
 // Define a game object:
 let gameState = {
     playerIsAlive: () => {
-        // Return true if player is alive:
        return playerShip.hull > 0;
     },
     checkWin: () => {
-        //return true if player has won the game
+        return enemies.length == 0; 
     }
 };
 
 //Start the game
 console.log("Generating enemy ships.");
-// enemy = new AlienShip();
-// console.log(enemy);
 enemies = [];
-for(let i = 0; i < 1; i++) {
+for(let i = 0; i < 6; i++) {
     enemies.push(new AlienShip());
 }
 console.log(enemies);
 
-while (gameState.playerIsAlive()) {
-    //Turn by turn logic
-    //Player ship attacks:    
+while (gameState.playerIsAlive()) {   
     playerShip.attack(enemies[0]);
-    
     //check if enemy ship is destroyed
     if (enemies[0].hull <= 0) {
         console.log("Enemy ship destroyed!");
         let response = prompt("Enemy ship destroyed, type attack or retreat")
         if (response === "retreat") {
-            alert("You retreated, game over.");
+            alert("You have retreated. Game over.");
             break;
-        } else if (response === "attack")  {
-            //keep looping, gameplay
-            console.log("continuing gameplay");
-        }
-    } else {
+            } else if (response === "attack") {
+                console.log("Continuing gameplay");    
+            }
+        } else {
         //enemy attacks us
         enemies[0].attack();
     }
 }
 
 //End Game Logic
-//player either lost retreated
-console.log("Game over")
 
-//TODO:
-//1. write the loop to check if when the one ship dies, there is an alert saying you won the game
-//2. expand the loop to 6
-//3. continue and check if th player won
+if(gameState.checkWin()) {
+    alert("You won the game!")
+} else {
+    console.log("Game over")
+};
+
+// Todo:
+// 1. Make the loop go on to the next enemy array object after each one is detsroyed.
+// 2. Correct the end game logic so that the player only wins after 6 enemy ships have been detroyed.
