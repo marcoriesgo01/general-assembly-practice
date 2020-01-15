@@ -1,3 +1,4 @@
+// Created Hamster Class:
 class Hamster {
     constructor (name) {
         this.owner = "";
@@ -13,8 +14,9 @@ class Hamster {
     getPrice() {
         return this.price;
     }
-}
+};
 
+// Created Person Class:
 class Person {
     constructor(name) {
         this.name = name;
@@ -56,5 +58,56 @@ class Person {
         this.mood += 10;
         this.bankAccount -= hamster.getPrice();
     }
-}
+};
 
+// Create a Story with your Person Class:
+// Timmy = new person
+const timmy = new Person("Timmy");
+
+// Timmy ages 5 years
+for (i = 0; i < 5; i++) {
+    timmy.ageUp();
+};
+timmy.getAge();
+
+// Timmy eats 5 times
+for (i = 0; i < 5; i++) {
+    timmy.eat();
+};
+timmy.getWeight();
+
+// Timmy exercises 5 times
+for (i = 0; i < 5; i++) {
+    timmy.exercise();
+};
+timmy.getWeight();
+
+// Timmy ages 9 years... now he is 14
+for (i = 0; i < 9; i++) {
+    timmy.ageUp();
+};
+
+// New hamster gus is created
+const gus = new Hamster("Gus");
+
+// Timmy becomes gus' owner
+gus.owner = "Timmy";
+
+// Timmy buys gus
+timmy.buyHamster(gus);
+
+// Timmy ages 15 years... he is now 29
+for (i = 0; i < 15; i++) {
+    timmy.ageUp();
+};
+timmy.getAge();
+
+// Timmy eats twice
+for (i = 0; i < 2; i++) {
+    timmy.eat();
+};
+
+// Timmy exercises twice
+for (i = 0; i < 2; i++) {
+    timmy.exercise();
+};
