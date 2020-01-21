@@ -1,4 +1,7 @@
 $(() => {
+
+// Year 1:
+
     const $container = $('#container');
     console.log($container);
 
@@ -6,6 +9,8 @@ $(() => {
     console.log($h1);
     $h1.text('Hogwarts')
     $container.append($h1);
+
+// Year 2:
 
     const $h2 = $('<h2>');
     console.log($h2);
@@ -28,6 +33,8 @@ $(() => {
     $wand.text('The Elder Wand');
     $container.append($wand);
     
+// Year 3:
+
     const $ul = $('<ul>');
     console.log($ul);
     $ul.attr('storage', 'trunk');
@@ -60,6 +67,8 @@ $(() => {
     const $jellyBeans = $('<li>');
     $jellyBeans.text("Bertie Bott's Every Flavor [Jelly] Beans");
     $ul.append($jellyBeans);
+
+// Year 4:
 
     const $tableTitle = $('<h5>');
     $tableTitle.text("Spring 2020");
@@ -157,5 +166,15 @@ $(() => {
     $petIsBack.addClass('toad');
     $petIsBack.text('Phillip the Toad');
     $h3.append($petIsBack);
+
+// Year 6:
+
+    $(".secret").hide("slow").delay(2000).show("slow");
+    $leash.addClass('cabbage');
+    $leash.removeClass('cabbage');
+
+// Year 7:
+
+    
 
 });
