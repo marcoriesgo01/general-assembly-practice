@@ -134,9 +134,28 @@ $(() => {
     $fridayClass.text("Defence Against the Dark Arts, Herbology, Divination");
     $tr5.append($fridayClass);
 
+// Year 5:
 
+    $($wand).remove();
+    $($beer).remove();
 
+    const $newWand = $('<h4>');
+    $newWand.text('Death Eater Swirl Wand');
+    $ul.prepend($newWand);
+    $newWand.css('color', 'indigo');
 
+    $($pet).remove();
 
+    const $petOnAMission = $('<h4>');
+    $petOnAMission.addClass('toad');
+    $petOnAMission.text('Phillip the Toad');
+    $container.append($petOnAMission);
+
+    $($petOnAMission).remove();
+
+    const $petIsBack = $('<h4>');
+    $petIsBack.addClass('toad');
+    $petIsBack.text('Phillip the Toad');
+    $h3.append($petIsBack);
 
 });
