@@ -1,87 +1,88 @@
-// Create the Player Ship:
-let playerShip = {
-    hull: 20,
-    firepower: 5,
-    accuracy: 0.7,
-    // Methods for battle:
-    attack(enemyShip) {
-        console.log("Player attacking Alien ship");
-        // Check for hit success based on Player Ship accuracy:
-        if (Math.random() < playerShip.accuracy){
-            console.log("Attack hit!");
-            enemyShip.hull -= playerShip.firepower;
-        } else {
-            console.log("Attack missed!");
+class PlayerShip {
+    constructor(name, hull, firepower, accuracy) {
+      this.name = name;
+      this.hull = hull;
+      this.firepower = firepower;
+      this.accuracy = accuracy;
+    }
+    // Did ship hit alien?:
+    hitNoHit() { 
+        return this.accuracy >= Math.random(); 
+    }
+    // Is the ship dead?:
+    isDead() { 
+        return this.hull <= 0; 
+    }
+    // Attack alienship:
+    attackShip(enemy){
+      if(this.hitNoHit()){
+        enemy.hull -= this.firepower;
+        let attackText = this.name + " hit " + enemy.name + " and did " + this.firepower + " damage!";
+        attackText += "\n";
+        attackText += enemy.name + " has " + enemy.hull + " hull left.";
+        return attackText;
+      } else {
+        return this.name + " missed!";
+      }
+    }
+  };
+  
+  // Declare ships:
+  // USS Riesgo:
+  const myShip = new PlayerShip("USS Riesgo", 20, 5, .7);
+  // Alien Array:
+  const alienShips = [];
+  
+  // Create ships:
+  const reset = (shipArray, playerShip) =>{
+    playerShip.hull = 20;
+    for(let x = 0; x < 6; x++){
+      shipArray.pop();
+    }
+    for(let i = 0; i < 6; i++){
+      let hull = Math.floor(Math.random() * 4) + 3;
+      let firepower = Math.floor(Math.random() * 3) + 2;
+      let accuracy = (Math.floor(Math.random() * 3) + 6) / 10;
+      shipArray.push(new PlayerShip("Alien " + (i+1), hull, firepower, accuracy));
+    }
+  };
+  reset(alienShips, myShip);
+  
+  // Gameplay:
+  const mainTurn = () => {
+    let cmd = "";
+    let retreat = false;
+    alert("Aliens are attacking!");
+
+    // Loops if: player is not dead, player has not retreated, more than 0 aliens
+    while(!myShip.isDead() && !retreat && alienShips.length > 0)
+    {
+      cmd = prompt("Will you attack or retreat?", "Attack/Retreat").toLowerCase();
+      if(cmd === "retreat"){
+        retreat = true;
+      } else if(cmd === "attack"){
+        // While both players are alive, loop gameplay:
+        while(!myShip.isDead() && !alienShips[0].isDead()){
+          alert(myShip.attackShip(alienShips[0]));
+          if(!alienShips[0].isDead()){
+            alert(alienShips[0].attackShip(myShip));
+          } else {
+            alert("You destroyed " + alienShips[0].name + "!");
+          }
         }
-        console.log(enemyShip);
+        alienShips.shift();
+      } else if(cmd === "reset"){
+          reset(alienShips, myShip);
+      }
     }
-};
-
-// Define an AlienShip class:
-class AlienShip {
-    constructor(){
-        this.hull = Math.floor(Math.random() * 4) + 3;
-        this.firepower = Math.floor(Math.random() * 3) + 2;
-        this.accuracy = (Math.floor(Math.random() * 3) + 6) / 10; 
-        console.log(`==========> Hull power: ${this.hull}`)
+    if(myShip.hull <= 0){
+      alert("Game over. You died!");
     }
-    attack() {
-        console.log("Alien Ship attacking");
-        // Check for hit or miss: 
-        if(Math.random() < this.accuracy) {
-            console.log("Alien ship hit player!")
-            playerShip.hull -= this.firepower;
-            console.log("Player Ship hull remaining: " + playerShip.hull);
-        } else {
-            console.log("Alien ship missed.");
-        }
+    if(alienShips.length == 0){
+    alert("Congratulations. You won the game!");
     }
-};
- 
-// Define a game object:
-let gameState = {
-    playerIsAlive: () => {
-       return playerShip.hull > 0;
-    },
-    checkWin: () => {
-        return enemies.length == 0; 
+    if(retreat){
+      alert("Game over. You retreated!");
     }
-};
-
-//Start the game
-console.log("Generating enemy ships.");
-enemies = [];
-for(let i = 0; i < 6; i++) {
-    enemies.push(new AlienShip());
-}
-console.log(enemies);
-
-while (gameState.playerIsAlive()) {   
-    playerShip.attack(enemies[0]);
-    //check if enemy ship is destroyed
-    if (enemies[0].hull <= 0) {
-        console.log("Enemy ship destroyed!");
-        let response = prompt("Enemy ship destroyed, type attack or retreat")
-        if (response === "retreat") {
-            alert("You have retreated. Game over.");
-            break;
-            } else if (response === "attack") {
-                console.log("Continuing gameplay");    
-            }
-        } else {
-        //enemy attacks us
-        enemies[0].attack();
-    }
-}
-
-//End Game Logic
-
-if(gameState.checkWin()) {
-    alert("You won the game!")
-} else {
-    console.log("Game over")
-};
-
-// Todo:
-// 1. Make the loop go on to the next enemy array object after each one is detsroyed.
-// 2. Correct the end game logic so that the player only wins after 6 enemy ships have been detroyed.
+  }
+  mainTurn();
