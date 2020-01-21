@@ -17,16 +17,48 @@ $(() => {
     $h3.text('Gryffindor');
     $container.append($h3);
 
-    const $h4pet = $('<h4>');
-    $h4pet.addClass('toad');
-    console.log($h4pet);
-    $h4pet.text('Phillip the Toad');
-    $container.append($h4pet);
+    const $pet = $('<h4>');
+    $pet.addClass('toad');
+    console.log($pet);
+    $pet.text('Phillip the Toad');
+    $container.append($pet);
 
-    const $h4wand = $('<h4>');
-    console.log($h4wand);
-    $h4wand.text('The Elder Wand');
-    $container.append($h4wand);
+    const $wand = $('<h4>');
+    console.log($wand);
+    $wand.text('The Elder Wand');
+    $container.append($wand);
     
+    const $ul = $('<ul>');
+    console.log($ul);
+    $ul.attr('storage', 'trunk');
+    $container.append($ul);
+
+    const $beer = $('<li>');
+    $beer.text("Butter beer");
+    $ul.append($beer);
+    
+    const $cloak = $('<li>');
+    $cloak.addClass('secret');
+    $cloak.text("Invisibility cloak");
+    $ul.append($cloak);
+
+    const $magicMap = $('<li>');
+    $magicMap.addClass('secret');
+    $magicMap.text("Magic map");
+    $ul.append($magicMap);
+
+    const $timeTurner = $('<li>');
+    $timeTurner.addClass('secret');
+    $timeTurner.text("Time turner");
+    $ul.append($timeTurner);
+
+    const $leash = $('<li>');
+    $leash.addClass('toad');
+    $leash.text("Leash");
+    $ul.append($leash);
+
+    const $jellyBeans = $('<li>');
+    $jellyBeans.text("Bertie Bott's Every Flavor [Jelly] Beans");
+    $ul.append($jellyBeans);
 
 });
