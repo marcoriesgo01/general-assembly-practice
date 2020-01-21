@@ -3,6 +3,17 @@ body {
     text-align: center;
 }
 
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+h3 {
+    font-style: oblique;
+    color: #7f0909;
+}
+
 .toad {
     font-family: fantasy;
 }
@@ -13,10 +24,11 @@ body {
 
 ul {
     list-style-type: none;
+    padding: 0;
 }
 
 table, th, td {
-    border: gray 1px solid;
+    border: #7f0909 1px solid;
 }
 
 table {

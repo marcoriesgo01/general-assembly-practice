@@ -65,7 +65,7 @@ $(() => {
     $ul.append($leash);
 
     const $jellyBeans = $('<li>');
-    $jellyBeans.text("Bertie Bott's Every Flavor [Jelly] Beans");
+    $jellyBeans.text("Bertie Bott's Every Flavor Jelly Beans");
     $ul.append($jellyBeans);
 
 // Year 4:
@@ -147,12 +147,6 @@ $(() => {
 
     $($wand).remove();
     $($beer).remove();
-
-    const $newWand = $('<h4>');
-    $newWand.text('Death Eater Swirl Wand');
-    $ul.prepend($newWand);
-    $newWand.css('color', 'indigo');
-
     $($pet).remove();
 
     const $petOnAMission = $('<h4>');
@@ -165,7 +159,12 @@ $(() => {
     const $petIsBack = $('<h4>');
     $petIsBack.addClass('toad');
     $petIsBack.text('Phillip the Toad');
-    $h3.append($petIsBack);
+    $($petIsBack).insertAfter($h3);
+
+    const $newWand = $('<h4>');
+    $newWand.text('Death Eater Swirl Wand');
+    $($newWand).insertAfter($petIsBack);
+    $newWand.css('color', 'indigo');
 
 // Year 6:
 
@@ -175,6 +174,13 @@ $(() => {
 
 // Year 7:
 
+    $tableTitle.text("Fall 2021");
     
+    const $moreBeer = $('<li>');
+    $moreBeer.text("Butter beer");
+    $ul.prepend($moreBeer);
+    
+    $ul.removeAttr('storage');
+    $ul.attr('storage', 'chest');
 
 });
