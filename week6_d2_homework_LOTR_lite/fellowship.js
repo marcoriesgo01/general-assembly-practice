@@ -287,13 +287,15 @@ const weWantsIt = () => {
 // Chapter 13
 // ============
 const thereAndBackAgain = () => {
-
   // 1. remove Gollum and the Ring from the DOM
-
+  $("#gollum").remove();
+  $("#mount-doom").empty();
   // 2. remove all the baddies from the DOM
-
+  $("li").remove(".baddy");
   // 3. Move all the hobbits back to the shire
-
+  let $newHobbitList = $("<ul>");
+  $("#The-Shire").append($newHobbitList);
+  $newHobbitList.append($(".hobbit"));
 };
 
 // COMMIT YOUR WORK
