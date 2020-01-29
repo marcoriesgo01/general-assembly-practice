@@ -270,13 +270,14 @@ const itsDangerousToGoAlone = () => {
 // Chapter 12
 // ============
 const weWantsIt = () => {
-
+    console.log("Trying to create we want it.");
   // 1. Create a div with an id of 'gollum' and add it to Mordor
-
+  let $gollum = $("<div>").attr("id", "gollum");
+  $("#Mordor").append($gollum);
   // 2. Move the ring from Frodo and give it to Gollum
-
+  $("#gollum").append($("#the-ring"));
   // 3. Move Gollum into Mount Doom
-
+  $("#mount-doom").append($gollum);
 };
 
 // COMMIT YOUR WORK
