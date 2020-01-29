@@ -171,10 +171,14 @@ const leaveTheShire = () => {
 // Chapter 7
 // ============
 const beautifulStranger = () => {
-
+    console.log("Trying to create beautiful stranger");
   // 1. change the buddy 'Strider' textnode to "Aragorn"
      // hint: You can get a list of elements by tag name, such as 'aside'
-
+     $(".buddy").each(function() {
+        if ( $(this).text() === "Strider") {
+          $(this).text("Aragorn");
+        }
+     });
 };
 
 // COMMIT YOUR WORK
