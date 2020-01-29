@@ -197,8 +197,8 @@ const forgeTheFellowShip = () => {
   // 3. append the fellowship to middle-earth
   $("#middle-earth").append($newFellowship);
   // 4. add the unordered lists of hobbits and buddies to 'the-fellowship'
-    $("#the-fellowship").append($("aside").children("ul"));
-
+  $("#the-fellowship").append($("aside").children("ul"));
+  $("#the-fellowship").append($("#Rivendell").children("ul"));
 };
 
 // COMMIT YOUR WORK
@@ -251,11 +251,16 @@ const hornOfGondor = () => {
 // Chapter 11
 // ============
 const itsDangerousToGoAlone = () => {
-
+    console.log("It's dangerous to go alone.");
   // 1. take Frodo and Sam out of the fellowship and move them to Mordor (they don't need to be inside a ul in Mordor)
-
+  $("#the-fellowship").children("ul").children().each(function() {
+    if ($(this).text() === "Frodo Baggins" || $(this).text() === "Samwise \'Sam\' Gamgee") {
+      $("#Mordor").append($(this));
+    }
+ });
   // 2. add a div with an id of 'mount-doom' to Mordor
-
+  let $mountDoom = $("<div>").attr("id", "mount-doom");
+  $("#Mordor").append($mountDoom);
 };
 
 // COMMIT YOUR WORK
