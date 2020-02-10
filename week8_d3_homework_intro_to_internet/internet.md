@@ -2,7 +2,7 @@
 
 ### Watch the following two videos:
 
-[How the Internet Works in 5 Minutes](https://www.youtube.com/watch?v=7_LPdttKXPc "How the Internet Works in 5 Minutes")
+[How the Internet Works in 5 Minutes](https://www.youtube.com/watch?v=7_LPdttKXPc)
 
 [HTTP and the request-response cycle](https://www.youtube.com/watch?v=DrI2lUXL1no)
 
@@ -21,6 +21,10 @@
 ## Define HTTP:
 
 #### HTTP, which stands for Hypertext Transfer Protocol, is the communications protocol used to connect webpages on computing networks. HTTP is used to make connections with servers in order to send back HTML pages to a user's browser.
+
+### Read the following article:
+
+[I Don’t Speak Your Language: Frontend vs. Backend](https://blog.teamtreehouse.com/i-dont-speak-your-language-frontend-vs-backend)
 
 ## Define Front End:
 
