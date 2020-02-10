@@ -2,7 +2,9 @@
 
 ### Watch the following two videos:
 
-[""How the Internet Works in 5 Minutes](https://www.youtube.com/watch?v=7_LPdttKXPc "How the Internet Works in 5 Minutes")
+[How the Internet Works in 5 Minutes](https://www.youtube.com/watch?v=7_LPdttKXPc "How the Internet Works in 5 Minutes")
+
+[HTTP and the request-response cycle](https://www.youtube.com/watch?v=DrI2lUXL1no)
 
 ## What is the difference between a client and a server?
 
