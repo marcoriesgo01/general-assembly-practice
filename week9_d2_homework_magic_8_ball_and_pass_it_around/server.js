@@ -12,7 +12,7 @@ app.get("/greeting/:name", (req, res) => {
 
 // Tip calculator:
 app.get("/tip/:total/:tipPercentage", (req, res) => {
-    res.send("Your tip should be " + req.params.total * req.params.tipPercentage/100);
+    res.send("Your tip should be " + (req.params.total * req.params.tipPercentage/100));
 });
 
 app.listen(port, () => {
