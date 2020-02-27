@@ -6,12 +6,14 @@ const port = 3000;
 //Connect the server to the database:
 const pokemon = require('./models/pokemon.js')
 
-//Creating the pokemon route (basic):
+//Creating the pokemon route (index view):
 app.get('/pokemon', (req, res)=>{
-    res.render('index.ejs');
+    res.render('index.ejs',
+    {pokemon: pokemon});
 });
 
-//Setting up the index View:
+//Setting up the index View to show pokemon data:
+
 
 
 
