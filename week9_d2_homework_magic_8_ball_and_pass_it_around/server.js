@@ -3,7 +3,6 @@ const express = require('express');
 
 const app = express();
 
-const port = 3000;
 
 // Greetings:
 app.get("/greeting/:name", (req, res) => {
@@ -52,6 +51,6 @@ app.get("/magic/:question", (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log("I am listening for requests on port", port);
+app.listen(3000, () => {
+    console.log("I am listening for requests on port 3000");
   });
