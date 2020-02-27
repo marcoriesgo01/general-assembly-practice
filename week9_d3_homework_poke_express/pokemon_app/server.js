@@ -1,15 +1,18 @@
-//Start the app
+//Start the app:
 const express = require('express');
 const app = express();
 const port = 3000;
 
-//Connect the server to the database
+//Connect the server to the database:
 const pokemon = require('./models/pokemon.js')
 
 //Creating the pokemon route (basic):
 app.get('/pokemon', (req, res)=>{
-    res.send(pokemon);
+    res.render('index.ejs');
 });
+
+//Setting up the index View:
+
 
 
 
