@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     res.send("App is connected");
 });
 
-//Index:
+//Index budget page:
 app.get('/Budget', (req, res)=>{
     res.render('index.ejs', 
     {Budget: Budget});
@@ -44,6 +44,7 @@ app.post('/Budget', (req, res)=>{
     //After the POST request on the method, the button redirects itt to here automatically.
     res.redirect('/Budget');
 });
+//More info about re.body: https://stackoverflow.com/questions/14008346/express-js-req-body
 
 // Show route:
 app.get('/Budget/:id', (req, res)=>{
