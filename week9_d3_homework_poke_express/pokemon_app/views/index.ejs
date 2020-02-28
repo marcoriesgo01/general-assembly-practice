@@ -13,13 +13,16 @@
           font-family: 'Spartan', monospace;
           text-align: center;
         }
+        a {
+            display: block;
+            margin-top: 30px;
+        }
       </style>
 </head>
     <body>
-        <h1 style="font-size: xx-large;">Pokemon App</h1>
+        <h1 style="font-size: xx-large; text-decoration: underline;">Pokemon App</h1>
         <h2 style="font-size: large;">See all the Pokemon!</h2>
-        <ul>
-            <% for (let i = 0; i < pokemon.length; i++) { %>
+        <ul><% for (let i = 0; i < pokemon.length; i++) { %>
             <li>
               <a href="/pokemon/<%=i%>"><%= pokemon[i].name.charAt(0).toUpperCase() + pokemon[i].name.slice(1) %></a>
             </li>
