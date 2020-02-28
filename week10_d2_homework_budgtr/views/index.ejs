@@ -11,6 +11,26 @@
 <body>
     <div class="container">
         <h1>Budgtr All</h1>
+        <h3>Your Account</h3>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Amount</th>
+            </tr>
+            <% for (let i=0; i < Budget.length; i++) { %>
+            <tr>
+                <td>
+                    <%= Budget[i].date %>
+                </td>
+                <td>
+                    <a href="/budget/<%=i%>"><%= Budget[i].name %></a>
+                </td>
+                <td>
+                    <%= Budget[i].amount %> <% } %>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>

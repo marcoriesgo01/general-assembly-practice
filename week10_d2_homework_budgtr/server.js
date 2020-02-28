@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 //Connect to the database:
-const budget = require('./models/budget.js');
+const Budget = require('./models/budget.js');
 
 //Set up the middleware:
 app.use((req, res, next) => {
@@ -14,14 +14,15 @@ app.use((req, res, next) => {
 
 app.use(express.urlencoded({extended: false}));
 
-
-
-
-//Basic port 3000 call:
+//Index:
 app.get('/', (req, res)=>{
     res.render('index.ejs', 
-    {budget: budget});
+    {Budget: Budget});
 });
+
+
+
+
 
 
 //Make the app listen:
