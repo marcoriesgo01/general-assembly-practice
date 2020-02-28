@@ -15,12 +15,16 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({extended: false}));
 
 //Index:
-app.get('/', (req, res)=>{
+app.get('/Budget', (req, res)=>{
     res.render('index.ejs', 
     {Budget: Budget});
 });
 
-
+// Show route:
+app.get('/Budget/:id', (req, res)=>{
+    res.render('show.ejs', 
+    {Budget: Budget[req.params.id]});
+});
 
 
 
