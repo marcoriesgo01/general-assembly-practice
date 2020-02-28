@@ -15,11 +15,13 @@ app.use((req, res, next) => {
     next();
 });
 
+//Add the express static to communicate with the "Public folder":
+app.use(express.static('public'));
+
 //Begin a practice route to check the app is working:
 app.get('/', (req, res) => {
     res.send("App is connected");
 });
-
 
 //Index:
 app.get('/Budget', (req, res)=>{
@@ -29,14 +31,17 @@ app.get('/Budget', (req, res)=>{
 
 
 //Route to the new item page:
-//For some reason, the "add new item will not work if the Budget/new section is after the show route"
+//Remember, the "add new item will not work if the Budget/new section is after the show route"
+//Therefore, the origginal index, the post, and the new, must all go before the show
 app.get('/Budget/new', (req, res) =>{
     res.render('new.ejs')
 });
 
 //Create a route in order to post a new expense to the list:
 app.post('/Budget', (req, res)=>{
+    //The form in new, with a method of POST sends the information here, which is pushed up to Budget
     Budget.push(req.body);
+    //After the POST request on the method, the button redirects itt to here automatically.
     res.redirect('/Budget');
 });
 
