@@ -13,6 +13,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 //Index:
 app.get('/Budget', (req, res)=>{
