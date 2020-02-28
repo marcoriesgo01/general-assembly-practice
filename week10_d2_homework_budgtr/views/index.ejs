@@ -12,6 +12,15 @@
     <div class="container">
         <h1>Budgtr All</h1>
         <h3>Your Account</h3>
+        <%let bankAccount = 0%> 
+        <%for(let i=0; i < Budget.length; i++) { %>
+            <%bankAccount += Number(Budget[i].amount)%>
+            <%}%> 
+        <%if(bankAccount < 0) {%>
+        <h4 style="background-color: rgba(255, 32, 32, 0.577);"> Your current balance is $<%= bankAccount %> </h4>
+        <% } else { %>
+        <h4 style="background-color: rgba(0, 131, 0, 0.803);"> Your current balance is $<%= bankAccount %> </h4>
+        <%}%>
         <a class="button" href="/Budget/new">New Item</a>
         <table>
             <tr>

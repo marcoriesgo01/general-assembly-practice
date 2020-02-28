@@ -17,6 +17,7 @@ app.use((req, res, next) => {
 
 //Add the express static to communicate with the "Public folder":
 app.use(express.static('public'));
+//More info on the express static: https://expressjs.com/en/starter/static-files.html
 
 //Begin a practice route to check the app is working:
 app.get('/', (req, res) => {
@@ -28,6 +29,15 @@ app.get('/Budget', (req, res)=>{
     res.render('index.ejs', 
     {Budget: Budget});
 });
+
+//How to complete the current amount of money in the account section:
+//Check the file "index.ejs" for the code
+//1. set up the variable of bankAccount that is set equal to 0
+//2. write a for loop that runs through every value in the database
+//3. Make it so that the value of the database is added to the current value of bankAccount
+//4. Write an if statement
+//5. If the value of bankAccount is lower, than 0, create a red tag with the current value
+//6. if not, create a green tag with the value in the account.
 
 
 //Route to the new item page:
