@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>View Pokemon</title>  
+</head>
+<body>
+  <h1>Pokedex</h1>
+  <h2>The Ultimate Pokemon Website!</h2>
+  <button><a href="/pokemon">Return to the Pokedex</a></button>
+  <div class="container">
+    <h3>
+      <%= Pokemon.name %>
+    </h3>
+    <img src="<%= Pokemon.img %>" alt="Pokemon Image">
+    <h4>Pokemon Types:</h4>
+      <ul>
+        <% for (let i = 0; i < Pokemon.type.length; i++) { %>
+        <li><%= Pokemon.type[i] %></li>
+        <% } %>
+      </ul>
+    <h4>Stats:</h4>
+    <ul>
+      <li>Health: <%= Pokemon.stats.hp %></li>
+      <li>Attack: <%= Pokemon.stats.attack %></li>
+      <li>Defense: <%= Pokemon.stats.defense %></li>
+    </ul>
+  </div>
+</body>
+</html>

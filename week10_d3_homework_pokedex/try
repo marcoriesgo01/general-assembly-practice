@@ -1,0 +1,16 @@
+<div class="container">
+    <h3><%= Pokemon.name %></h3>
+    <img src="<%= Pokemon.img %>" alt="Pokemon Image">
+    <h4>Pokemon Types:</h4>
+      <ul>
+        <% for (let i = 0; i < Pokemon.type.length; i++) { %>
+        <li><%= Pokemon.type[i] %></li>
+        <% } %>
+      </ul>
+    <h4>Stats:</h4>
+    <ul>
+      <li>Health: <%= Pokemon.stats.hp %></li>
+      <li>Attack: <%= Pokemon.stats.attack %></li>
+      <li>Defense: <%= Pokemon.stats.defense %></li>
+    </ul>
+  </div>

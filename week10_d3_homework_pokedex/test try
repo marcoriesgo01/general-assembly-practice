@@ -1,0 +1,70 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>View Pokemon</title>  
+</head>
+<body>
+  <h1>Pokedex</h1>
+  <h2>The Ultimate Pokedex!</h2>
+  <button><a href="/pokemon">Return to the Pokedex</a></button>
+
+  <div class="container">
+    <h3><%= pokemon.name %></h3>
+    <img src="<%= pokemon.img %>" alt="Pokemon Image">
+    <h4>Pokemon Type:</h4>
+    <ul>
+      <% for(let i = 0; i < pokemon.type.length; i++) { %>
+      <li><%= pokemon.type[i] %></li>
+      <% } %>
+    </ul>
+    <h4>Stats:</h4>
+    <ul>
+      <li>Health: <%= pokemon.stats.hp %></li>
+      <li>Attack: <%= pokemon.stats.attack %></li>
+      <li>Defense: <%= pokemon.stats.defense %></li>
+      <li>SP Attack: <%= pokemon.stats.spattack %></li>
+      <li>SP Defense: <%= pokemon.stats.spdefense %></li>
+      <li>Speed: <%= pokemon.stats.speed %></li>
+    </ul>
+  </div>
+</body>
+</html> -->
+
+<!-- test try -->
+
+
+Index:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokedex</title>
+    <style>
+        .pokemonItem {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pokedex</h1>
+    <h2>The Ultimate Pokedex!</h2>
+    <button><a href="/pokemon/new" class="button">Add A New Pokemon</a></button>
+    <div class="container">
+    <% for(let i = 0; i < pokemon.length; i++) { %>
+        <div class="pokemonItem">
+            <div class="name"><a href="/pokemon/<%=pokemon[i].id; %>"><%= pokemon[i].name %></a></div>
+            <div class="image"><a href="/pokemon/<%=pokemon[i].id; %>"><img src="<%= pokemon[i].img %>" alt="Pokemon"></a></div>
+            <a href="/pokemon/<%=pokemon[i].id; %>/edit">Edit</a>
+            <form class="delete" action="/pokemon/<%=pokemon[i].id; %>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE">
+            </form>
+        </div>
+    <% } %>
+    </div>
+    <!-- <button></button><a href=""></a> -->
+</body>
+</html>
