@@ -63,6 +63,12 @@ app.post("/pokemon", (req, res) => {
     res.redirect("/pokemon");
 });
 
+//Creating the delete route:
+app.delete('/pokemon/:id', (req, res) => {
+    Pokemon.splice(req.params.id, 1)
+    res.redirect('/pokemon')
+});
+
 //Create a Show Route:
 app.get('/pokemon/:id', (req, res) => {
     res.render('show.ejs', {
