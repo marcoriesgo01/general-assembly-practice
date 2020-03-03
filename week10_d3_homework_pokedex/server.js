@@ -36,6 +36,17 @@ app.get('/pokemon/:id/edit', (req, res) => {
 });
 
 //Create an Update Route:
+app.put("/pokemon/:id", (req, res) => {
+    Pokemon[req.params.id] = { 
+        'name': req.body.name,
+        'img': req.body.img,
+        'type': req.body.type.split(","),
+        'stats': { 'hp': req.body.hp,
+            'attack': req.body.attack,
+            'defense': req.body.defense }
+    };
+    res.redirect("/pokemon");
+});
 
 
 //Create Post route for the new pokemons:
@@ -44,11 +55,9 @@ app.post("/pokemon", (req, res) => {
         'name': req.body.name,
         'img': req.body.img,
         'type': req.body.type.split(","),
-        'stats': { 
-            'hp': req.body.hp,
+        'stats': { 'hp': req.body.hp,
             'attack': req.body.attack,
-            'defense': req.body.defense 
-        }
+            'defense': req.body.defense }
     };
     Pokemon.push(addedPokemon);
     res.redirect("/pokemon");
@@ -58,7 +67,6 @@ app.post("/pokemon", (req, res) => {
 app.get('/pokemon/:id', (req, res) => {
     res.render('show.ejs', {
         Pokemon: Pokemon[req.params.id],
-        index: req.params.id
     })
 });
 
