@@ -121,6 +121,10 @@
                 <p class="description"><%=product.price %></p>
                 <h4 class="category">Stock Quantity</h4>
                 <p class="description"><%=product.qty %></p>
+                <div class="edit"><a type="button" class="btn btn-info btn-lg" href="/products/<%=product.id%>/edit">Edit</a></div>
+                <form class="delete" action="/products/<%=product.id%>?_method=DELETE" method="POST">
+                <input type="submit" type="button" class="btn btn-danger btn-lg" value="Delete">
+                </form>
             </div>
         </div>  
     </div>

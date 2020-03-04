@@ -51,7 +51,34 @@ products.post ('/' , (req , res) => {
     });
 });
 
+//Get route in order to redirect to an edit page:
+products.get('/:id/edit', (req, res) => {
+    Product.findById(req.params.id , (err, product) => {
+          if(err) { 
+            console.log(err); 
+          }
+          res.render('./products/edit.ejs', 
+          {product: product}
+        );
+    });
+});
 
+//Put route to add the changes to a product:
+products.put('/:id', (req, res) => {
+    Product.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, product) => {
+        if(err) { 
+            console.log(err);
+        }
+        res.redirect('/products/' + product.id);
+    });
+});
+
+// Create the delete route:
+products.delete('/:id', (req, res) => {
+    Product.findByIdAndRemove(req.params.id, (err, data) => {
+      res.redirect('/products');//redirect back to logs index
+    });
+});
 
 
 //Create a seed route to call fresh products:
