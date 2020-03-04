@@ -16,11 +16,26 @@ products.get ('/json', (req, res) => {
 
 // Index:
 products.get ('/', (req, res) => {
-    Product.find((err, products) => {
+    Product.find( {}, (err, products) => {
+      if(err) {
+        console.log(err); 
+      };
       res.render ('./products/index.ejs', { products });
     });
 });
 
+// New Route (This must always be above id routes):
+
+// Show Route:
+products.get ('/:id', (req, res) => {
+    Product.findById( req.params.id, (err, product) => {
+      if(err) {
+        console.log(err); 
+      };
+      res.render ('./products/show.ejs', 
+      { product: product });
+    });
+});
 
 
 
