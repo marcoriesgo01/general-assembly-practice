@@ -34,7 +34,8 @@
       height: auto;
     }
     .indexButton {
-      position: fixed;
+      
+      position: absolute;
       top: 40px;
       left: 75px;
       box-shadow: 5px 5px 6px #8e8e8ec4;
@@ -77,7 +78,7 @@
     <h3 class="instructions">Add Your Own Pokemon:</h3>
     <div class="bodySpaceToUse">
       <form action="/pokemon" method="POST">
-        <h4 class="generalInfo">General Info</h4>
+        <h4 class="generalInfo">General</h4>
         <div class="form-group">
             <label for="pokemonName">Pokemon Name:</label>
             <input type="text" class="form-control" name="name" placeholder="Pikachu">
@@ -104,7 +105,7 @@
             <label for="pokemonDefense">Defense:</label>
             <input type="text" class="form-control" name="defense" placeholder="e.g. 52">
         </div>  
-      <input class="btn btn-success" id="submitPokemon" type="submit" name="" value="Submit New Pokemon">
+      <input class="btn btn-success btn-lg" id="submitPokemon" type="submit" name="" value="Submit New Pokemon">
       </form>
     </div>
   </div>

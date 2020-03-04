@@ -1,24 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Edit Pokemon</title>  
+  <style>
+      body {
+          font-family: 'Oxanium', cursive;
+          background: linear-gradient(127deg, rgba(2,0,36,1) 0%, rgba(5,4,76,1) 15%, rgba(7,6,94,1) 30%, rgba(9,9,121,1) 46%, rgba(9,24,131,1) 55%, rgba(8,44,144,1) 65%, rgba(7,67,160,1) 76%, rgba(5,111,189,1) 92%, rgba(3,158,220,1) 99%, rgba(5,104,184,1) 100%, rgba(0,212,255,1) 100%);
+      }
+      .heading {
+          background: hsl(0, 0%, 96%);
+          height: 120px;
+          width: 100%;
+          position: relative;
+      }
+      h1 {
+          text-align: center;
+          color: #05044c;
+          padding-top: 35px;
+          font-size: 56px;
+          text-shadow: 6px 2px 3px #aaaaaaba;
+      } 
+      .bodySpaceToUse {
+        max-width: 530px;
+        height: auto;
+      }
+      form {
+        width: 95%;
+        height: auto;
+      }
+      .indexButton {
+        
+        position: absolute;
+        top: 40px;
+        left: 75px;
+        box-shadow: 5px 5px 6px #8e8e8ec4;
+      }
+      h3 {
+        margin-top: 35px;
+        margin-bottom: 15px;
+        color: hsl(0, 0%, 96%);
+        font-size: 40px;
+      }
+      h4 {
+        color: hsl(0, 0%, 96%);
+        font-size: 36px;
+        margin-bottom: 15px;
+  
+      }
+      .instructions {
+        margin-top: 45px;
+        margin-bottom: 35px;
+      }
+      label {
+        color: hsl(0, 0%, 96%);
+        font-size: 24px;
+      }
+      .typesStart, .statisticsStart {
+        margin-top: 55px;
+      }
+      #editPokemon {
+        margin-top: 60px;
+        margin-bottom: 220px;
+      }
+    </style>
 </head>
 <body>
-  <h1>Pokedex</h1>
-  <h2>The Ultimate Pokemon Website!</h2>
-  <h3>Edit Your Pokemon</h3>
-  <form action="/pokemon/<%=index%>?_method=PUT" method="POST">
-    Name: <input type="text" name="name" placeholder="<%=Pokemon.name%>" /><br />
-    Image: <input type="text" name="img" placeholder="<%=Pokemon.img%>" /><br />
-    <h3>Type:</h3><br />
-    <input type="text" name="type" placeholder="<%=Pokemon.type%>" /><br />
-    <h3>Stats:</h3><br />
-    HP: <input type="text" name="hp" placeholder="<%=Pokemon.hp%>" /><br />
-    Attack: <input type="text" name="attack" placeholder="<%=Pokemon.attack%>" /><br />
-    Defense: <input type="text" name="defense" placeholder="<%=Pokemon.defense%>" /><br />
-    <input type="submit" name="" value="Edit Pokemon" />
-  </form>
+  <div class="col-xs-1" align="center">
+    <div class="heading">
+        <h1 class="uk-heading-medium">Pokedex</h1>
+        <div class="indexButton"><a type="button" class="btn btn-danger btn-lg" href="/pokemon">Back To Home Page</a></div>
+    </div>
+    <h3 class="instructions">Edit This Pokemon</h3>
+    <div class="bodySpaceToUse">
+        <form action="/pokemon/<%=index%>?_method=PUT" method="POST">
+          <h4 class="generalInfo">General</h4>
+          <div class="form-group">
+              <label for="pokemonName">Pokemon Name:</label>
+              <input type="text" class="form-control" name="name" placeholder="<%=Pokemon.name%>">
+          </div>
+          <div class="form-group">
+              <label for="pokemonImage">Pokemon Image:</label>
+              <input type="text" class="form-control" name="img" placeholder="<%=Pokemon.img%>">
+          </div>
+          <h4 class="typesStart">Types</h4>
+          <div class="form-group">
+              <label for="pokemonType">Pokemon Types:</label>
+              <input type="text" class="form-control" name="type" placeholder="<%=Pokemon.type%>">
+          </div>
+          <h4 class="statisticsStart">Stats</h4>
+          <div class="form-group">
+              <label for="pokemonHp">HP:</label>
+              <input type="text" class="form-control" name="hp" placeholder="<%=Pokemon.hp%>">
+          </div>
+          <div class="form-group">
+              <label for="pokemonAttack">Attack:</label>
+              <input type="text" class="form-control" name="attack" placeholder="<%=Pokemon.attack%>">
+          </div>
+          <div class="form-group">
+              <label for="pokemonDefense">Defense:</label>
+              <input type="text" class="form-control" name="defense" placeholder="<%=Pokemon.defense%>">
+          </div>  
+        <input class="btn btn-warning btn-lg" id="editPokemon" type="submit" name="" value="Submit Edits To This Pokemon">
+        </form>
+    </div>
+  </div>
 </body>
 </html>
