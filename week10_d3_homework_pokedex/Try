@@ -62,10 +62,12 @@
     .typesStart, .statisticsStart {
       margin-top: 55px;
     }
-    #submitPokemon {
+    .submitPokemon {
       margin-top: 60px;
       margin-bottom: 220px;
     }
+
+
   </style>
 </head>
 <body>
@@ -80,33 +82,101 @@
         <h4 class="generalInfo">General Info</h4>
         <div class="form-group">
             <label for="pokemonName">Pokemon Name:</label>
-            <input type="text" class="form-control" name="name" placeholder="Pikachu">
+            <input type="text" name="name" placeholder="Pikachu">
         </div>
         <div class="form-group">
             <label for="pokemonImage">Pokemon Image:</label>
-            <input type="text" class="form-control" name="img" placeholder="Image URL">
+            <input type="text" name="img" placeholder="Image URL">
         </div>
         <h4 class="typesStart">Types</h4>
         <div class="form-group">
             <label for="pokemonType">Pokemon Types:</label>
-            <input type="text" class="form-control" name="type" placeholder="Grass, Poison">
+            <input type="text" name="type" placeholder="Grass, Poison">
         </div>
         <h4 class="statisticsStart">Stats</h4>
         <div class="form-group">
             <label for="pokemonHp">HP:</label>
-            <input type="text" class="form-control" name="hp" placeholder="e.g. 46">
+            <input type="text" name="hp" placeholder="e.g. 46">
         </div>
         <div class="form-group">
             <label for="pokemonAttack">Attack:</label>
-            <input type="text" class="form-control" name="attack" placeholder="e.g. 50">
+            <input type="text" name="attack" placeholder="e.g. 50">
         </div>
         <div class="form-group">
             <label for="pokemonDefense">Defense:</label>
-            <input type="text" class="form-control" name="defense" placeholder="e.g. 52">
+            <input type="text" name="defense" placeholder="e.g. 52">
         </div>  
-      <input class="btn btn-success" id="submitPokemon" type="submit" name="" value="Submit New Pokemon">
+        <div class="submitPokemon"><input type="submit" name="" value="Submit New Pokemon"></div>
       </form>
     </div>
+  </div>
+</body>
+</html>
+
+//// Original:
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>New Pokemon</title>
+  <style>
+    body {
+        font-family: 'Oxanium', cursive;
+        background: linear-gradient(127deg, rgba(2,0,36,1) 0%, rgba(5,4,76,1) 15%, rgba(7,6,94,1) 30%, rgba(9,9,121,1) 46%, rgba(9,24,131,1) 55%, rgba(8,44,144,1) 65%, rgba(7,67,160,1) 76%, rgba(5,111,189,1) 92%, rgba(3,158,220,1) 99%, rgba(5,104,184,1) 100%, rgba(0,212,255,1) 100%);
+    }
+    .heading {
+        background: hsl(0, 0%, 96%);
+        height: 120px;
+        width: 100%;
+        position: relative;
+    }
+    h1 {
+        text-align: center;
+        color: #05044c;
+        padding-top: 35px;
+        font-size: 56px;
+        text-shadow: 6px 2px 3px #aaaaaaba;
+    } 
+    .indexButton {
+      position: fixed;
+      top: 40px;
+      left: 75px;
+      box-shadow: 5px 5px 6px #8e8e8ec4;
+    }
+    h3 {
+      margin-top: 35px;
+      margin-bottom: 15px;
+      color: hsl(0, 0%, 96%);
+      font-size: 40px;
+    }
+    h4 {
+      color: hsl(0, 0%, 96%);
+
+    }
+  </style>
+</head>
+<body>
+  <div class="col-xs-1" align="center">
+    <div class="heading">
+        <h1 class="uk-heading-medium">Pokedex</h1>
+        <div class="indexButton"><a type="button" class="btn btn-danger btn-lg" href="/pokemon">Back To Pokedex</a></div>
+    </div>
+    <h3>Add Your Own Pokemon:</h3>
+    <form action="/pokemon" method="POST">
+      Name: <input type="text" name="name" placeholder="Name" /><br />
+      Image: <input type="text" name="img" placeholder="Image URL" /></br />
+      <h4>Type:</h4><br />
+      <input type="text" name="type" placeholder="Type (Separated By a Comma)" /><br />
+      <h4>Stats:</h4><br />
+      HP: <input type="text" name="hp" placeholder="HP" /><br />
+      Attack: <input type="text" name="attack" placeholder="Attack" /><br />
+      Defense: <input type="text" name="defense" placeholder="Defense" /><br />
+      <input type="submit" name="" value="Add to Pokedex" />
+    </form>
   </div>
 </body>
 </html>
