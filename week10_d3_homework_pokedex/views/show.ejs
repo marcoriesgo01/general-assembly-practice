@@ -1,31 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="/css/styles.css">
-  <title>View Pokemon</title>  
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>View Pokemon</title>
+  <Style>
+    body {
+      font-family: 'Oxanium', cursive;
+      background: linear-gradient(127deg, rgba(2,0,36,1) 0%, rgba(5,4,76,1) 15%, rgba(7,6,94,1) 30%, rgba(9,9,121,1) 46%, rgba(9,24,131,1) 55%, rgba(8,44,144,1) 65%, rgba(7,67,160,1) 76%, rgba(5,111,189,1) 92%, rgba(3,158,220,1) 99%, rgba(5,104,184,1) 100%, rgba(0,212,255,1) 100%);
+    }
+    .heading {
+      background: hsl(0, 0%, 96%);
+      height: 120px;
+      width: 100%;
+      position: relative;
+    }
+    h1 {
+      text-align: center;
+      color: #05044c;
+      padding-top: 35px;
+      font-size: 56px;
+      text-shadow: 6px 2px 3px #aaaaaaba;
+    } 
+    .indexButton {
+      position: fixed;
+      top: 40px;
+      left: 75px;
+      box-shadow: 5px 5px 6px #8e8e8ec4;
+    }
+    h3 {
+      margin-top: 35px;
+      margin-bottom: 15px;
+      color: hsl(0, 0%, 96%);
+      font-size: 38px;
+    }
+    .cardTitle {
+      color: hsl(0, 0%, 96%);
+      font-size: 36px;
+      margin-bottom: 0px;
+      margin-top: 65px;
+    }
+    .container {
+      margin-top: 0px;
+      max-width: 100%;
+    }
+    .pokemonItem {
+      display: inline-block;
+      width: 530px;
+      height: 880px;
+      margin: 40px 30px 100px 30px;
+      border-width: 8px; 
+      border-style: solid;
+      border-color: rgba(240, 0, 0, 0.719);
+      border-radius: 20px;
+      background: white;
+      box-shadow: 6px 7px 6px #c7c7c7eb;
+      
+    }
+    .pokemonItem .img-fluid {
+      margin-top: 25px;
+      margin-bottom: 40px;
+      width: 90%;
+      height: auto;
+    }
+    .name {
+      color: rgb(64, 83, 222);
+      font-weight: bold;
+      font-size: 52px;
+      margin-top: 25px;
+    }
+    .type, .stats {
+      font-size: 36px;
+      color: black;
+      margin-bottom: 5px;
+      margin-top: 20px;
+    }
+    .stats {
+      margin-top: 30px;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      font-size: 28px;
+    }
+    .statNumber {
+      color: rgba(240, 0, 0, 0.719);
+      font-weight: bold;
+    }
+    .pokemonTypes {
+      color: teal;
+      font-weight: bold;
+    }
+  </Style>  
 </head>
 <body>
-  <h1>Pokedex</h1>
-  <h2>The Ultimate Pokemon Website!</h2>
-  <button><a href="/pokemon">Return to the Pokedex</a></button>
+  <div class="col-xs-1" align="center">
+    <div class="heading">
+        <h1 class="uk-heading-medium">Pokedex</h1>
+        <div class="indexButton"><a type="button" class="btn btn-danger btn-lg" href="/pokemon">Back To Pokedex</a></div>
+    </div>
+  <h3>The Ultimate Pokemon Collection!</h3>
+  <h4 class="cardTitle">You Selected...</h4>
   <div class="container">
-    <h3>
-      <%= Pokemon.name %>
-    </h3>
-    <img src="<%= Pokemon.img %>" alt="Pokemon Image">
-    <h4>Pokemon Types:</h4>
+    <div class="pokemonItem">
+      <h3 class="name">
+        <%= Pokemon.name %>
+      </h3>
+      <div class="img-fluid"><img src="<%= Pokemon.img %>" alt="Pokemon Image"></div>
+      <h4 class="type">Pokemon Type:</h4>
+        <ul>
+          <% for (let i = 0; i < Pokemon.type.length; i++) { %>
+          <li><span class="pokemonTypes"><%= Pokemon.type[i] %></span></li>
+          <% } %>
+        </ul>
+      <h4 class="stats">Stats:</h4>
       <ul>
-        <% for (let i = 0; i < Pokemon.type.length; i++) { %>
-        <li><%= Pokemon.type[i] %></li>
-        <% } %>
+        <li>Health: <span class="statNumber"><%= Pokemon.stats.hp %></span></li>
+        <li>Attack: <span class="statNumber"><%= Pokemon.stats.attack %></span></li>
+        <li>Defense: <span class="statNumber"><%= Pokemon.stats.defense %></span></li>
       </ul>
-    <h4>Stats:</h4>
-    <ul>
-      <li>Health: <%= Pokemon.stats.hp %></li>
-      <li>Attack: <%= Pokemon.stats.attack %></li>
-      <li>Defense: <%= Pokemon.stats.defense %></li>
-    </ul>
+    </div>
   </div>
+</div>
 </body>
 </html>
