@@ -39,40 +39,45 @@
         }
         .pokemonItem .img-fluid {
             width: 80%;
-            height: 155px;
+            height: 210px;
             border-radius: 3px;
             margin-bottom: 11px;
         }
         .container {
             margin-top: 5px;
-            max-width: 70%;
+            margin-left: 150px;
+            margin-right: 150px;
+            max-width: 80%;
         }
         .pokemonItem {
             display: inline-block;
-            max-width: 210px;
-            height: 300px;
-            margin: 30px 30px 30px 30px;
-            border-width: 6px; 
-            border-style: double;
+            width: 300px;
+            height: 410px;
+            margin: 45px 45px 45px 45px;
+            border-width: 5px; 
+            border-style: solid;
             border-color: rgb(240, 0, 0);
             border-radius: 20px;
             background: white;
             box-shadow: 6px 5px 6px #b3b3b3eb;
         }
-        .editButton {
+        .edit {
             display: inline-block;
+            text-align: center;
             background: white;
-            margin-top: 10px;
-            margin-right: 13px;
+            margin-top: 25px;
+            margin-right: 20px;
             width: 70px;
             height: 37px;
             box-shadow: 5px 5px 6px #8e8e8ec4;
         }
         .delete {
             display: inline-block;
+            text-align: center;
             background: white;
-            margin-left: 13px;
-            margin-right: 4px;
+            margin-left: 20px;
+            margin-right: 23px;
+            margin-top: 25px;
             width: 70px;
             height: 37px;
             box-shadow: 5px 5px 6px #8e8e8ec4;
@@ -80,13 +85,13 @@
         
         .nameLink {
             color: rgb(64, 83, 222);
-            font-weight: bold;
+            font-weight: normal;
             text-decoration: underline;
         }
         .name {
-            margin-top: 12px;
+            margin-top: 18px;
             margin-bottom: 18px;
-            font-size: 21px;
+            font-size: 28px;
             text-shadow: 6px 2px 3px #aaaaaa92;;
         }
     
@@ -104,9 +109,9 @@
             <div class="pokemonItem">
                 <div class="name"><a class="nameLink" href="/pokemon/<%=i%>"> <%= Pokemon[i].name %></a></div>
                 <div class="image"><a href="/pokemon/<%=i%>"><img src="<%= Pokemon[i].img %>" class="img-fluid" alt="Pokemon"></a></div>
-                <div class="editButton"><a type="button" class="btn btn-info" href="/pokemon/<%=i%>/edit"><span style="opacity:0;">s</span>Edit<span style="opacity:0;">s</span></a></div>
+                <div class="edit"><a type="button" class="btn btn-info btn-lg" href="/pokemon/<%=i%>/edit"><span style="opacity:0;">s</span>Edit<span style="opacity:0;">s</span></a></div>
                 <form class="delete" action="/pokemon/<%=i%>?_method=DELETE" method="POST">
-                    <input type="submit" type="button" class="btn btn-danger" value="Delete">
+                <input type="submit" type="button" class="btn btn-danger btn-lg" value="Delete">
                 </form>
             </div>
         <% } %>
