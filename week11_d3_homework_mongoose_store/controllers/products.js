@@ -25,6 +25,9 @@ products.get ('/', (req, res) => {
 });
 
 // New Route (This must always be above id routes):
+products.get ('/new', (req, res) => {
+    res.render ('./products/new.ejs');
+});
 
 // Show Route:
 products.get ('/:id', (req, res) => {
@@ -37,6 +40,16 @@ products.get ('/:id', (req, res) => {
     });
 });
 
+//Post Route for a new product:
+products.post ('/' , (req , res) => {
+    Product.create(req.body, (err, product) => {
+      if(err) { 
+        res.send(err);
+      } else {
+        res.redirect('/products');
+      }
+    });
+});
 
 
 
