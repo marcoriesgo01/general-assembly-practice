@@ -90,7 +90,6 @@ products.put ('/:id/buy', (req, res) => {
     });
 });
 
-
 //Create a seed route to call fresh products:
 products.get('/seed/newproducts', (req, res) => {
     const newProducts = [

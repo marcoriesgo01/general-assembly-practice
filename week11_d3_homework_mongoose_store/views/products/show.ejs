@@ -8,99 +8,106 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>View Product</title>
   <Style>
-    body {
-      font-family: 'Oxanium', cursive;
-      background: linear-gradient(127deg, rgba(2,0,36,1) 0%, rgba(5,4,76,1) 15%, rgba(7,6,94,1) 30%, rgba(9,9,121,1) 46%, rgba(9,24,131,1) 55%, rgba(8,44,144,1) 65%, rgba(7,67,160,1) 76%, rgba(5,111,189,1) 92%, rgba(3,158,220,1) 99%, rgba(5,104,184,1) 100%, rgba(0,212,255,1) 100%);
-    }
-    .heading {
-      background: hsl(0, 0%, 96%);
-      height: 120px;
-      width: 100%;
-      position: relative;
-    }
-    h1 {
-      text-align: center;
-      color: #05044c;
-      padding-top: 35px;
-      font-size: 56px;
-      text-shadow: 6px 2px 3px #aaaaaaba;
-    } 
-    .indexButton {
-      position: absolute;
-      top: 40px;
-      left: 75px;
-      box-shadow: 5px 5px 6px #8e8e8ec4;
-    }
-    h3 {
-      margin-top: 35px;
-      margin-bottom: 15px;
-      color: hsl(0, 0%, 96%);
-      font-size: 38px;
-    }
-    .cardTitle {
-      color: hsl(0, 0%, 96%);
-      font-size: 36px;
-      margin-bottom: 0px;
-      margin-top: 65px;
-    }
-    .container {
-      margin-top: 0px;
-      max-width: 100%;
-    }
+  body {
+          font-family: 'Oxanium', cursive;
+          background: #e6e6ea;
+      }
+      .heading {
+          background: #1d1b1b;
+          height: 120px;
+          width: 100%;
+          position: relative;
+      }
+      h1 {
+          text-align: center;
+          color: white;
+          padding-top: 35px;
+          font-size: 56px;
+          text-shadow: 6px 2px 3px #aaaaaaba;;
+      }
+      h3 {
+          margin-top: 35px;
+          margin-bottom: 15px;
+          color: #dc3444;
+          font-size: 45px;
+          font-weight: bold;
+      }
+      .productItem .img-fluid {
+          width: auto;
+          height: 240px;
+          border-radius: 3px;
+          margin-bottom: 11px;
+      }
+      .container {
+          margin-top: 5px;
+          margin-left: 150px;
+          margin-right: 150px;
+          max-width: 80%;
+      }
     .productItemSelected {
       display: inline-block;
-      width: 530px;
-      height: 880px;
-      margin: 40px 30px 100px 30px;
-      border-width: 8px; 
-      border-style: solid;
+      width: 730px;
+      height: auto;
+      margin: 20px 30px 100px 30px;
+      border-width: 6px; 
+      border-style: double;
       border-color: rgba(240, 0, 0, 0.797);
       border-radius: 20px;
       background: white;
       box-shadow: 6px 7px 6px #c7c7c7eb;
       
     }
-    .productItemSelected .img-fluid {
-      width: 80%;
-      height: 360px;
+    .category {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .itemImage {
+      width: auto;
+      height: 300px;
       border-radius: 3px;
-      margin-top: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 11px;
     }
-    .name {
-      color: rgb(64, 83, 222);
-      font-weight: bold;
-      font-size: 52px;
-      margin-top: 25px;
+    .indexButton {
+      position: fixed;
+      top: 40px;
+      left: 75px;
+      box-shadow: 5px 5px 6px #505050c4;
     }
-    .type, .stats {
+    h4 {
       font-size: 36px;
-      color: black;
-      margin-bottom: 5px;
-      margin-top: 20px;
+      margin-top: 40px;
     }
-    .stats {
+    .category {
+      font-size: 32px;
+    }
+    .description {
+      margin-left: 30px;
+      margin-right: 30px;
+      font-size: 20px;
+    }
+    .itemName {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .buyButton {
+      width: 70%;
       margin-top: 30px;
+      margin-bottom: 30px;
+      box-shadow: 5px 5px 6px #505050c4;
     }
-    
-    ul {
-      list-style: none;
-      padding: 0;
+    .edit {
+      width: 30%;
+      display: inline-block;
+      box-shadow: 5px 5px 6px #505050c4;
+      margin-right: 30px;
+      margin-bottom: 60px;
     }
-    li {
-      font-size: 28px;
-    }
-    .statNumber {
-      color: rgba(240, 0, 0, 0.797);
-      font-weight: bold;
-    }
-    .pokemonTypes {
-      color: teal;
-      font-weight: bold;
-    }
-    #pokemonImage {
-      box-sizing: content-box;
-      width: 100%;
+    .delete {
+      width: 30%;
+      display: inline-block;
+      box-shadow: 5px 5px 6px #505050c4;
+      margin-left: 30px;
+      margin-bottom: 60px;
     }
   </Style>  
 </head>
@@ -114,24 +121,24 @@
             <h4>Product Selected:</h4>
             <div class="productItemSelected">
                 <h3 class="itemName"><%= product.name %></h3>
-                <div class="itemImage"><img src="<%= product.img %>" class="img-fluid" alt="<%= product.name %>"></div>
-                <h4 class="category">Description</h4>
+                <img class="itemImage"src="<%= product.img %>" class="img-fluid" alt="<%= product.name %>">
+                <h4 class="category">Description:</h4>
                 <p class="description"><%=product.description %></p>
-                <h4 class="category">Price</h4>
-                <p class="description"><%=product.price %></p>
-                <h4 class="category">Stock Quantity</h4>
+                <h4 class="category">Price:</h4>
+                <p class="description">$<%=product.price %></p>
+                <h4 class="category">Stock Quantity:</h4>
                 <% if (product.qty <= 0) { %>
                     <p class="noStock">Out Of Stock</p>
                     <% } else { %>  
                     <p class="description"><%=product.qty %></p>
                     <form class="buyButton" action="/products/<%=product.id%>/buy?_method=PUT" method="POST">
-                        <input type="submit" type="button" class="btn btn-danger btn-lg" value="Buy">
+                        <input type="submit" type="button" class="btn btn-success btn-lg btn-block" value="Buy">
                     </form>
                     <% } %>
-                <div class="edit"><a type="button" class="btn btn-info btn-lg" href="/products/<%=product.id%>/edit">Edit</a></div>
+                <div class="edit"><a type="button" class="btn btn-outline-info btn-lg btn-block" btn-lg btn-block" href="/products/<%=product.id%>/edit">Edit</a></div>             
                 <form class="delete" action="/products/<%=product.id%>?_method=DELETE" method="POST">
-                    <input type="submit" type="button" class="btn btn-danger btn-lg" value="Delete">
-                </form>
+                    <div class="deleteButton"><input type="submit" type="button" class="btn btn-outline-danger btn-lg btn-block" value="Delete"></div>
+                  </form>             
             </div>
         </div>  
     </div>
