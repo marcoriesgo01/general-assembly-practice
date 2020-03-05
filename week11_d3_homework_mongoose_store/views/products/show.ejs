@@ -120,10 +120,17 @@
                 <h4 class="category">Price</h4>
                 <p class="description"><%=product.price %></p>
                 <h4 class="category">Stock Quantity</h4>
-                <p class="description"><%=product.qty %></p>
+                <% if (product.qty <= 0) { %>
+                    <p class="noStock">Out Of Stock</p>
+                    <% } else { %>  
+                    <p class="description"><%=product.qty %></p>
+                    <form class="buyButton" action="/products/<%=product.id%>/buy?_method=PUT" method="POST">
+                        <input type="submit" type="button" class="btn btn-danger btn-lg" value="Buy">
+                    </form>
+                    <% } %>
                 <div class="edit"><a type="button" class="btn btn-info btn-lg" href="/products/<%=product.id%>/edit">Edit</a></div>
                 <form class="delete" action="/products/<%=product.id%>?_method=DELETE" method="POST">
-                <input type="submit" type="button" class="btn btn-danger btn-lg" value="Delete">
+                    <input type="submit" type="button" class="btn btn-danger btn-lg" value="Delete">
                 </form>
             </div>
         </div>  

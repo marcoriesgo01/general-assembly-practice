@@ -80,6 +80,16 @@ products.delete('/:id', (req, res) => {
     });
 });
 
+//Create a route for buying the products:
+products.put ('/:id/buy', (req, res) => {
+    Product.findByIdAndUpdate(req.params.id, {$inc: {qty: -1}}, (err, product) => {
+      if(err) { 
+        console.log(err); 
+      }
+      res.redirect('/products/' + product.id);
+    });
+});
+
 
 //Create a seed route to call fresh products:
 products.get('/seed/newproducts', (req, res) => {
