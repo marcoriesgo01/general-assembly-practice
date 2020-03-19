@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700|Thasadith');
+
+body {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.truck-name {
+    font-size: 60px;
+}
+
+.receipt {
+    border: 3px solid orange;
+    text-align: center;
+    width: 300px;
+    height: 450px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+span {
+    font-weight: 300;
+}
