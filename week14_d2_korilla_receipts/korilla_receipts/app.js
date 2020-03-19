@@ -67,13 +67,14 @@ class Receipt extends React.Component {
 
 class App extends React.Component {
     state = {
-        receipts,
+        receipts
     }
 
     handlePaidClick = (index) => {
         console.log(receipts[index].paid);
         receipts[index].paid = true;
         console.log(receipts[index].paid);
+        this.forceUpdate();
     }
 
     render () {
@@ -88,9 +89,9 @@ class App extends React.Component {
                                     <Receipt receipt={receipt} />
                                 </div>
                             )
-                        } else {
-                            <div>""</div>
-                    }
+                        } else if(receipt.paid) {
+                          return null;
+                        }
                     })}   
                 </div>
             </div>
