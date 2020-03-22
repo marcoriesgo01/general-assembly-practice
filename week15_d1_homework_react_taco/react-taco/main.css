@@ -4,9 +4,9 @@ body {
     text-align: center;
     margin: 0;
     font-family: 'Nunito', sans-serif;
-    background-image: linear-gradient( 109.6deg,  rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1% );
+    background: url(https://pbs.twimg.com/media/DonFRcXX0AUj7JI.jpg:large);
     min-height: 100vh;
-    color: black;
+    color: white;
     padding-bottom: 3%;
 }
 
@@ -38,3 +38,12 @@ p {
     font-size: 18px;
 }
 
+.container {
+    background: rgba(0, 0, 0, 0.803);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 5em;
+    padding-right: 5em;
+    margin-top: 5em;
+    border-radius: 20px;
+}

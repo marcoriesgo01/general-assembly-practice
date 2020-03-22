@@ -14,7 +14,7 @@ render() {
             <h3>Seasoning:</h3>
             <h4>{this.props.taco.seasoning.name}</h4>
             <p>{this.props.taco.seasoning.recipe}</p>
-            <h3>Mixin:</h3>
+            <h3>Mixin':</h3>
             <h4>{this.props.taco.mixin.name}</h4>
             <p>{this.props.taco.mixin.recipe}</p>
         </div>
@@ -23,9 +23,13 @@ render() {
 }
 
 class TacoQueryForm extends React.Component {
-    state = {
-        taco: ""
+    constructor(props) {
+        super(props);
+        this.state = {
+            taco: ""
+        }
     }
+    
     handleSubmit = event => {
         event.preventDefault();
         this.setState(
@@ -44,11 +48,36 @@ class TacoQueryForm extends React.Component {
             }
         )
     }
+    componentDidMount() {
+        this.setState(
+            () => {
+                fetch('http://taco-randomizer.herokuapp.com/random/?full-tack=true')
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(
+                        json => 
+                            this.setState({
+                                taco: json
+                            }),
+                        err => console.log(err)
+                    );
+            }
+        )
+        return (
+            <React.Fragment>
+                {this.state.taco ? <TacoInfo taco={this.state.taco} /> : ""}
+            </React.Fragment>
+        )
+    }
+
+
     render() {
         return (
             <React.Fragment>
+            <h1>Random Taco Generator!</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="submit" class="btn btn-primary btn-lg" value="Find a New Taco" />
+                    <input type="submit" class="btn btn-warning btn-lg" value="Find a New Taco" />
                 </form>
                 {this.state.taco ? <TacoInfo taco={this.state.taco} /> : ""}
             </React.Fragment>
