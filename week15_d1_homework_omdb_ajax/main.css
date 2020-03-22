@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+
+body {
+    text-align: center;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    min-width: 600px;
+}
+
+.navBar {
+    background-color: black;
+    height: 6.2em;
+    -webkit-box-shadow: 0 8px 6px -6px rgb(116, 116, 116);
+    -moz-box-shadow: 0 8px 6px -6px rgb(116, 116, 116);
+    box-shadow: 0 8px 6px -6px rgb(116, 116, 116);
+
+}
+
+.contentContainer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.logo {
+    float: left;
+    text-align: center;
+    color: white;
+    margin-left: 2em;
+    margin-bottom: 0.1em;
+}
+
+.logo h1 {
+    color: white;
+    margin-top: 0.4em;
+    margin-bottom: 0px;
+}
+
+.logo p {
+    color: white;
+    margin-bottom: 0;
+    color: #ffc106;
+}
+
+.searchForm {
+    margin-top: 1.7em;
+    margin-right: 2em;
+    float: right;
+}
+
+input {
+    height: 46px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+input::placeholder {
+    padding-left: 10px;
+    
+}
+
+.movieInfoContainer {
+    text-align: center;
+    margin-bottom: 5em;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.movieInfoContainer h2 {
+    margin-top: 1.2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.movieInfoContainer img {
+    margin-top: 1em;
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.571);
+    border-radius: 3px;
+}
+
+#title {
+    font-size: 42px;
+    margin-top: 0.6em;
+}
