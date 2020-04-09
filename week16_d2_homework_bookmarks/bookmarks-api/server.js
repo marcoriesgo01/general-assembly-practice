@@ -30,7 +30,7 @@ app.use(express.json())
 
 //CONTROLLER ROUTES
 const bookmarksController = require("./controllers/bookmarks.js")
-app.use("/", bookmarksController)
+app.use("/bookmarks", bookmarksController)
 
 // PORT LISTENER
 app.listen(PORT, () => {
