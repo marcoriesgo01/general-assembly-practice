@@ -116,7 +116,7 @@ class EditBookmarkForm extends React.Component {
   render() {
     return(
       <div className="form-container">
-        <h2>Edit Your {this.props.bookmark.title} Bookmark</h2>
+        <h3>Edit {this.props.bookmark.title} Bookmark</h3>
         <form onSubmit={this.handleSubmit}>
           <div class="form-group">
             <label htmlFor="website-name">Website name</label>
@@ -126,7 +126,7 @@ class EditBookmarkForm extends React.Component {
             <label htmlFor="website-url">Website URL</label>
             <input type="text" class="form-control" id="url" name="url" onChange={this.handleChange} placeholder={this.props.bookmark.url} />
           </div>
-          <button type="submit" class="btn btn-outline-primary" id="submit-edit-button">Submit Edit</button>
+          <button type="submit" class="btn btn-outline-success" id="submit-edit-button">Complete</button>
         </form>
         <button type="button" onClick={(event) => this.props.closeEditForm(event)} class="btn btn-outline-secondary" id="cancel-edit-button">Cancel</button>
       </div>
@@ -214,11 +214,12 @@ class App extends React.Component {
         <div className="navBar">
           <h1>Bookmark'd</h1>
         </div>
-        <div className="container">
+        <div className="form-app-container">
         { this.state.addBookmarkForm ? <NewBookmarkForm baseURL={baseURL} handleAddBookmark={this.handleAddBookmark} /> : null }
         { this.state.editBookmarkForm ? <EditBookmarkForm baseURL={baseURL} bookmark={this.state.bookmark} closeEditForm={this.handleEditBookmarkSubmit} editBookmark={this.editBookmark} /> : null }
+        </div>
         <div className="bookmarks-container">
-          <table class="table table-hover table-bordered">
+          <table class="table-hover">
             <thead>
               <tr>
                 <th scope="col"><h3>Bookmarks List</h3></th>
@@ -240,7 +241,6 @@ class App extends React.Component {
             </tbody>
           </table>
         </div>
-      </div>
     </div>
     );
   }
