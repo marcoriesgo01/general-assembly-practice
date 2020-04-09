@@ -146,9 +146,11 @@ class App extends React.Component {
             <tbody>
             {this.state.bookmarks.map(bookmark => (
               <tr key={bookmark._id}>
-                <td>{bookmark.title}</td>
-                <td><button type="button" class="btn btn-outline-info" id="edit-bookmark-button">Edit</button></td>
-                <td><button type="button" onClick={() => this.deleteBookmark(bookmark._id)} class="btn btn-outline-danger" id="delete-bookmark-button">Delete</button></td>
+                <td>
+                  <a href={bookmark.url} target="_blank">{bookmark.title}</a> 
+                  <button type="button" onClick={() => this.deleteBookmark(bookmark._id)} class="btn btn-outline-info" id="edit-bookmark-button">Edit</button>
+                  <button type="button" onClick={() => this.deleteBookmark(bookmark._id)} class="btn btn-outline-danger" id="delete-bookmark-button">Delete</button>
+                </td>
               </tr>
               )
             )}
