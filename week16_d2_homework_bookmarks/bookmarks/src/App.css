@@ -1,13 +1,3 @@
 html {
   text-align: center;
 }
-
-#edit-bookmark-button {
-  width: 80px;
-  margin-right: 10px;
-}
-
-#delete-bookmark-button {
-  width: 80px;
-  margin-left: 10px;
-}
