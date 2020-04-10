@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,6 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: 595px;
+  font-family: 'Baloo Paaji 2', cursive;
 }
 
 code {
@@ -19,16 +22,22 @@ code {
 
 
 
+
 .navBar {
   text-align: center;
   padding-top: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 3px;
   margin-bottom: 1.5em;
-  background: black;
+  background: linear-gradient( 171.8deg,  rgba(5,111,146,1) 13.5%, rgba(6,57,84,1) 78.6% );
   color: white;
   -webkit-box-shadow: 0 8px 6px -6px rgb(116, 116, 116);
   -moz-box-shadow: 0 8px 6px -6px rgb(116, 116, 116);
   box-shadow: 0 8px 6px -6px rgb(116, 116, 116);
+}
+
+.navBar h1 {
+  font-size: 46px;
+  letter-spacing: 1px;
 }
 
 .form-app-container {
@@ -48,6 +57,7 @@ code {
 .form-container h3 {
   text-align: center;
   margin-bottom: 10px;
+  font-size: 34px;
 }
 
 .form-container label {
@@ -62,11 +72,11 @@ td {
 
 td h5 {
   padding-left: 5%;
-  width: 60%;
+  width: 40%;
   display: inline-block;
-  font-size: 22px;
+  font-size: 26px;
   padding-top: 17px;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
 }
 
 td h5:hover {
@@ -75,7 +85,7 @@ td h5:hover {
 
 .list-buttons-container {
   float: right;
-  padding-top: 15px;
+  padding-top: 16px;
   padding-right: 20px;
 }
 
@@ -90,14 +100,15 @@ td h5:hover {
   border-radius: 10px;
 }
 
-thead, tr, td {
-  border: 1px solid rgb(179, 179, 179);
+thead, tr {
+  border: 1px solid rgb(171, 171, 171);
 }
+
 
 tr h3 {
   padding-top: 10px;
-  padding-bottom: 8px;
-  font-size: 34px;
+  padding-bottom: 2px;
+  font-size: 40px;
 }
 
 table {

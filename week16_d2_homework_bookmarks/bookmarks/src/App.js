@@ -63,12 +63,12 @@ class NewBookmarkForm extends React.Component {
         <h3>Add A New Bookmark</h3>
         <form onSubmit={this.handleSubmit}>
           <div class="form-group">
-            <label htmlFor="website-name">Website name</label>
-            <input type="text" class="form-control" id="title" name="title" onChange={this.handleChange} placeholder="Enter site name" />
+            <label htmlFor="website-name">Website Name</label>
+            <input type="text" ref="fieldTitle" class="form-control" id="title" name="title" onChange={this.handleChange} placeholder="Enter site name" />
           </div>
           <div class="form-group">
             <label htmlFor="website-url">Website URL</label>
-            <input type="text" class="form-control" id="url" name="url" onChange={this.handleChange} placeholder="URL" />
+            <input type="text" ref="fieldUrl" class="form-control" id="url" name="url" onChange={this.handleChange} placeholder="URL" />
           </div>
           <button type="submit" class="btn btn-outline-primary" id="add-bookmark-button">Submit</button>
         </form>
@@ -116,10 +116,10 @@ class EditBookmarkForm extends React.Component {
   render() {
     return(
       <div className="form-container">
-        <h3>Edit {this.props.bookmark.title} Bookmark</h3>
+        <h3>Edit Bookmark: {this.props.bookmark.title}</h3>
         <form onSubmit={this.handleSubmit}>
           <div class="form-group">
-            <label htmlFor="website-name">Website name</label>
+            <label htmlFor="website-name">Website Name</label>
             <input type="text" class="form-control" id="title" name="title" onChange={this.handleChange} placeholder={this.props.bookmark.title} />
           </div>
           <div class="form-group">
@@ -212,7 +212,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <div className="navBar">
-          <h1>Bookmark'd</h1>
+          <h1>Bookmarked</h1>
         </div>
         <div className="form-app-container">
         { this.state.addBookmarkForm ? <NewBookmarkForm baseURL={baseURL} handleAddBookmark={this.handleAddBookmark} /> : null }
@@ -222,7 +222,7 @@ class App extends React.Component {
           <table class="table-hover">
             <thead>
               <tr>
-                <th scope="col"><h3>Bookmarks List</h3></th>
+                <th scope="col"><h3>Bookmark List</h3></th>
               </tr>
             </thead>
             <tbody>
