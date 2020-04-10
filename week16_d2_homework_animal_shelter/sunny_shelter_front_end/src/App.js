@@ -73,28 +73,111 @@ class NewAnimalForm extends React.Component {
       <div className="form-container">
         <h3>Add A New Animal</h3>
         <form onSubmit={this.handleSubmit}>
-          <div class="form-group">
+        <div class="form-row">
+          <div class="form-group col-md-6">
             <label htmlFor="name">Name</label>
             <input type="text" class="form-control" id="name" name="name" onChange={this.handleChange} placeholder="Name" />
           </div>
-          <div class="form-group">
-            <label htmlFor="species">Species</label>
-            <input type="text" class="form-control" id="species" name="species" onChange={this.handleChange} placeholder="Species" />
-          </div>
-          <div class="form-group">
-            <label htmlFor="breed">Breed</label>
-            <input type="text" class="form-control" id="breed" name="breed" onChange={this.handleChange} placeholder="Breed" />
-          </div>
-          <div class="form-group">
+          <div class="form-group col-md-6">
             <label htmlFor="image">Image URL</label>
             <input type="text" class="form-control" id="image" name="image" onChange={this.handleChange} placeholder="Image URL" />
           </div>
-          <div class="form-group">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label htmlFor="species">Species</label>
+            <input type="text" class="form-control" id="species" name="species" onChange={this.handleChange} placeholder="Species" />
+          </div>
+          <div class="form-group col-md-4">
+            <label htmlFor="breed">Breed</label>
+            <input type="text" class="form-control" id="breed" name="breed" onChange={this.handleChange} placeholder="Breed" />
+          </div>
+          <div class="form-group col-md-4">
             <label htmlFor="age">Age</label>
             <input type="text" class="form-control" id="age" name="age" onChange={this.handleChange} placeholder="Age" />
           </div>
-          <button type="submit" class="btn btn-outline-primary" id="add-bookmark-button">Submit</button>
+        </div>
+          <button type="submit" class="btn btn-primary" id="add-bookmark-button">Submit</button>
         </form>
+      </div>
+    );
+  }
+}
+
+
+class EditAnimalForm extends React.Component {
+
+  state = {
+    name: this.props.animal.name,
+    species: this.props.animal.species,
+    breed: this.props.animal.breed,
+    image: this.props.animal.image,
+    age: this.props.animal.age,
+    adopted: false,
+    personalityTraits: []
+  }
+
+  handleChange = event => {
+    this.setState({ [event.target.id]: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    fetch(this.props.baseURL + "/animals/" + this.props.animal._id, {
+      method: "PUT",
+      body: JSON.stringify({ 
+          name: this.state.name,
+          species: this.state.species,
+          breed: this.state.breed,
+          image: this.state.image,
+          age: this.state.age
+         }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(resJson => {
+      this.props.editAnimal(resJson);
+    })
+    .then(event => {
+      this.props.closeEditForm(event)
+    })
+    .catch(error => console.error({ Error: error }));
+  }
+
+  render() {
+    return(
+      <div className="form-container">
+        <h3>Edit {this.props.animal.name}'s Profile</h3>
+        <form onSubmit={this.handleSubmit}>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label htmlFor="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" onChange={this.handleChange} placeholder={this.props.animal.name} />
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="image">Image URL</label>
+              <input type="text" class="form-control" id="image" name="image" onChange={this.handleChange} placeholder={this.props.animal.image} />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label htmlFor="species">Species</label>
+              <input type="text" class="form-control" id="species" name="species" onChange={this.handleChange} placeholder={this.props.animal.species} />
+            </div>
+            <div class="form-group col-md-4">
+              <label htmlFor="breed">Breed</label>
+              <input type="text" class="form-control" id="breed" name="breed" onChange={this.handleChange} placeholder={this.props.animal.breed} />
+            </div>
+            <div class="form-group col-md-4">
+              <label htmlFor="age">Age</label>
+              <input type="text" class="form-control" id="age" name="age" onChange={this.handleChange} placeholder={this.props.animal.age} />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-success" id="edit-form-button">Complete</button>
+        </form>
+        <button type="button" onClick={(event) => this.props.closeEditForm(event)} class="btn btn-outline-secondary" id="edit-form-button">Cancel</button>
       </div>
     );
   }
@@ -130,7 +213,8 @@ class App extends Component {
       breed: '',
       image: '',
       age: '',
-      animal: {}
+      animal: {},
+      editAnimalForm: false
     });
   };
 
@@ -145,21 +229,31 @@ class App extends Component {
     })
   }
 
-  toggleAdopted = (animal) => {
-    fetch(baseURL + '/animals/' + animal._id, {
-      method: 'PUT',
-      body: JSON.stringify({adopted: !animal.adopted}),
-      headers: {
-        'Content-Type' : 'application/json'
-      }
-    }).then(res => res.json())
-    .then(resJson => {
-         const copyAnimals = [...this.state.animals]
-          const findIndex = this.state.animals.findIndex(animal => animal._id === resJson._id)
-          copyAnimals[findIndex].adopted = resJson.adopted
-          this.setState({animals: copyAnimals})
+  getAnimal = animal => {
+    this.setState({
+      animal,
+      editAnimalForm: true
     })
   }
+
+  editAnimal = (resJson) => {
+    const copyAnimals = [...this.state.animals]
+    const findIndex = this.state.animals.findIndex(animal => animal._id === animal._id)
+    copyAnimals[findIndex].name = resJson.name
+    copyAnimals[findIndex].species = resJson.species
+    copyAnimals[findIndex].breed = resJson.breed
+    copyAnimals[findIndex].image = resJson.image
+    copyAnimals[findIndex].age = resJson.age
+    this.setState({animals: copyAnimals})
+  }
+
+  handleEditAnimalSubmit = () => {
+    this.setState({
+      editAnimalForm: false,
+    });
+  }
+
+
 
   render() {
     return (
@@ -168,10 +262,10 @@ class App extends Component {
           <h1>Animal Shelter</h1>
         </div>
         <div className="form-app-container">
-          <NewAnimalForm baseURL={baseURL} handleAddAnimal={this.handleAddAnimal} />
+          { this.state.editAnimalForm && this.state.animal ? <EditAnimalForm baseURL={baseURL} animal={this.state.animal} closeEditForm={this.handleEditAnimalSubmit} editAnimal={this.editAnimal} /> : <NewAnimalForm baseURL={baseURL} handleAddAnimal={this.handleAddAnimal} /> }
         </div>
         <div className="animals-container">
-          <table class="table table-bordered table-hover">
+          <table class="table table-hover table-dark">
             <thead>
               <tr>
                 <th scope="col"><h5>Name</h5></th>
@@ -186,16 +280,16 @@ class App extends Component {
             <tbody>
               {this.state.animals.map(animal => (
                 <tr key={animal._id}>
-                  <td>{animal.name}</td>
-                  <td>{animal.species}</td>
-                  <td>{animal.breed}</td>
-                  <td className="button-td"><img src={animal.image} alt="Animal Image"></img></td>
-                  <td>{animal.age}</td>
-                  <td>{animal.adopted}</td>
-                  <td className="button-td"><button type="button" onClick={() => this.deleteAnimal(animal._id)} class="btn btn-outline-danger btn-sm" id="animal-list-button">Remove</button></td>
+                  <td><p>{animal.name}</p></td>
+                  <td><p>{animal.species}</p></td>
+                  <td><p>{animal.breed}</p></td>
+                  <td className="button-td-img"><img src={animal.image} alt="Animal Image"></img></td>
+                  <td className="age-icon"><p>{animal.age}</p></td>
+                  <td className="button-td"><button type="button" onClick={() => this.deleteAnimal(animal._id)} class="btn btn-success btn-sm" id="adopted-list-button">Adopted</button></td>
+                  <td className="button-td"><button type="button" onClick={() => this.getAnimal(animal)} class="btn btn-info btn-sm" id="animal-list-button">Edit</button></td>
                 </tr>
                 )
-              )}
+                )}
             </tbody>
           </table>
         </div>

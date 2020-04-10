@@ -9,6 +9,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-width: 595px;
   font-family: 'Baloo Paaji 2', cursive;
+  color: white;
+  background: #212528;
 }
 
 code {
@@ -45,11 +47,15 @@ code {
   padding-right: 20%;
 }
 
+label {
+  padding-left: 5px;
+  margin-bottom: 0;
+}
 
 
 .form-container {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 6%;
+  padding-right: 6%;
   margin-bottom: 3em;
   margin-top: 1em;
 }
@@ -65,9 +71,9 @@ code {
 }
 
 
-th, td {
-  width: 10%;
-  text-align: left;
+td {
+  width: 13%;
+  text-align: center;
 }
 
 th {
@@ -77,22 +83,11 @@ th {
 th h5 {
   display: inline-block;
   padding-top: 5px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 26px;
 }
 
-td h5:hover {
-  text-decoration: underline;
-}
-
-.list-buttons-container {
-  float: right;
-  padding-top: 16px;
-  padding-right: 20px;
-}
-
-.bookmark-button-container {
-  display: inline-block;
-}
 
 #add-bookmark-button {
   width: 50%;
@@ -101,31 +96,27 @@ td h5:hover {
   border-radius: 10px;
 }
 
-thead, tr {
-  border: 1px solid rgb(171, 171, 171);
-}
-
-
-tr h3 {
-  padding-top: 10px;
-  padding-bottom: 2px;
-  font-size: 40px;
-}
-
 .animals-container {
-  width: 92%;
+  margin-bottom: 10%;
+  margin-right: 0;
 }
 
 table {
   text-align: center;
   width: 100%;
-  margin-left: 4%;
 }
 
 td img {
   height: 80px;
   width: 80px;
   border-radius: 50%;
+}
+
+td p{
+  font-size: 22px;
+  height: 50%;
+  padding-top: 25px;
+  
 }
 
 
@@ -140,24 +131,33 @@ td img {
 #animal-list-button {
   width: 80px;
   border-radius: 7px;
+  margin-top: 25px;
+  width: 60%;
 }
 
-
-#submit-edit-button {
-  width: 50%;
-  margin-top: 5px;
-  margin-left: 25%;
-  border-radius: 10px;
+#adopted-list-button {
+  width: 80px;
+  border-radius: 7px;
+  margin-top: 25px;
+  width: 60%;
 }
 
-#cancel-edit-button {
+#edit-form-button {
   width: 50%;
   margin-top: 15px;
-  margin-left: 25%;
   border-radius: 10px;
+  margin-left: 25%;
+}
+
+.age-icon {
+  text-align: center;
 }
 
 .button-td {
+  text-align: center;
+}
+
+.button-td-img {
   text-align: center;
 }
 
