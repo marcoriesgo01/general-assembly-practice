@@ -65,6 +65,9 @@ class NewAnimalForm extends React.Component {
         age: ''
       });
     })
+    .then(event => {
+      this.props.cancelNewForm(event)
+    })
     .catch(error => console.error({ Error: error }));
   }
 
@@ -99,6 +102,7 @@ class NewAnimalForm extends React.Component {
         </div>
           <button type="submit" class="btn btn-primary" id="add-bookmark-button">Submit</button>
         </form>
+        <button type="button" onClick={(event) => this.props.cancelNewForm(event)} class="btn btn-outline-light" id="cancel-new-button">Cancel</button>
       </div>
     );
   }
@@ -175,9 +179,9 @@ class EditAnimalForm extends React.Component {
               <input type="text" class="form-control" id="age" name="age" onChange={this.handleChange} placeholder={this.props.animal.age} />
             </div>
           </div>
-          <button type="submit" class="btn btn-outline-success" id="edit-form-button">Complete</button>
+          <button type="submit" class="btn btn-success" id="edit-form-button">Complete</button>
         </form>
-        <button type="button" onClick={(event) => this.props.closeEditForm(event)} class="btn btn-outline-secondary" id="edit-form-button">Cancel</button>
+        <button type="button" onClick={(event) => this.props.closeEditForm(event)} class="btn btn-outline-light" id="edit-form-button">Cancel</button>
       </div>
     );
   }
@@ -186,7 +190,8 @@ class EditAnimalForm extends React.Component {
 
 class App extends Component {
   state = {
-    animals: []
+    animals: [],
+    addAnimal: false
   }
 
   getAnimals = () => {
@@ -232,7 +237,8 @@ class App extends Component {
   getAnimal = animal => {
     this.setState({
       animal,
-      editAnimalForm: true
+      editAnimalForm: true,
+      addAnimal: false
     })
   }
 
@@ -253,6 +259,20 @@ class App extends Component {
     });
   }
 
+  openNewAnimalForm = () => {
+    this.setState({
+      editAnimalForm:false,
+      animal: false,
+      addAnimal: true
+    });
+  }
+
+  closeNewAnimalForm = () => {
+    this.setState({
+      addAnimal: false
+    });
+  }
+
 
 
   render() {
@@ -260,9 +280,12 @@ class App extends Component {
       <div>
         <div className="navBar">
           <h1>Animal Shelter</h1>
+          <button type="button" onClick={this.openNewAnimalForm} class="btn btn-light" id="navBar-button">Add Animal</button>
         </div>
+        <h2 id="title">Animal Homelessness System - Los Angeles</h2>
         <div className="form-app-container">
-          { this.state.editAnimalForm && this.state.animal ? <EditAnimalForm baseURL={baseURL} animal={this.state.animal} closeEditForm={this.handleEditAnimalSubmit} editAnimal={this.editAnimal} /> : <NewAnimalForm baseURL={baseURL} handleAddAnimal={this.handleAddAnimal} /> }
+          { this.state.addAnimal ? <NewAnimalForm baseURL={baseURL} handleAddAnimal={this.handleAddAnimal} cancelNewForm={this.closeNewAnimalForm} /> : null }
+          { this.state.editAnimalForm && this.state.animal ? <EditAnimalForm baseURL={baseURL} animal={this.state.animal} closeEditForm={this.handleEditAnimalSubmit} editAnimal={this.editAnimal} /> : null }
         </div>
         <div className="animals-container">
           <table class="table table-hover table-dark">
@@ -285,8 +308,8 @@ class App extends Component {
                   <td><p>{animal.breed}</p></td>
                   <td className="button-td-img"><img src={animal.image} alt="Animal Image"></img></td>
                   <td className="age-icon"><p>{animal.age}</p></td>
-                  <td className="button-td"><button type="button" onClick={() => this.deleteAnimal(animal._id)} class="btn btn-success btn-sm" id="adopted-list-button">Adopted</button></td>
-                  <td className="button-td"><button type="button" onClick={() => this.getAnimal(animal)} class="btn btn-info btn-sm" id="animal-list-button">Edit</button></td>
+                  <td className="button-td"><button type="button" onClick={() => this.deleteAnimal(animal._id)} class="btn btn-success" id="adopted-list-button">Adopted</button></td>
+                  <td className="button-td"><button type="button" onClick={() => this.getAnimal(animal)} class="btn btn-info" id="animal-list-button">Edit</button></td>
                 </tr>
                 )
                 )}

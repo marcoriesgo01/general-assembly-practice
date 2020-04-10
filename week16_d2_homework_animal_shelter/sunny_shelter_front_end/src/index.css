@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Karla|Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap');
 
 body {
   margin: 0;
@@ -8,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: 595px;
-  font-family: 'Baloo Paaji 2', cursive;
+  font-family: 'Muli', sans-serif;
   color: white;
   background: #212528;
 }
@@ -27,14 +28,22 @@ code {
 
 .navBar {
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 3px;
-  margin-bottom: 1.5em;
-  background: radial-gradient( circle 926px at 2.7% 11%,  rgba(17,29,94,1) 0%, rgba(178,31,102,1) 90% );
+  padding-top: 8px;
+  padding-bottom: 2px;
+  margin-bottom: 2em;
+  background: linear-gradient( 70.5deg,  rgb(0, 94, 93) 23.5%, rgba(0,134,132,1) 91.3% );
   color: white;
-  -webkit-box-shadow: 0 8px 6px -6px rgb(116, 116, 116);
-  -moz-box-shadow: 0 8px 6px -6px rgb(116, 116, 116);
-  box-shadow: 0 8px 6px -6px rgb(116, 116, 116);
+  -webkit-box-shadow: 0 8px 6px -6px rgb(97, 97, 97);
+  -moz-box-shadow: 0 8px 6px -6px rgb(97, 97, 97);
+  box-shadow: 0 8px 6px -6px rgb(97, 97, 97);
+  position: relative;
+}
+
+.navBar button {
+  position: absolute;
+  top: 17px;
+  right: 25px;
+  font-weight: 500;
 }
 
 .navBar h1 {
@@ -45,6 +54,12 @@ code {
 .form-app-container {
   padding-left: 20%;
   padding-right: 20%;
+}
+
+#title {
+  margin-left: 4%;
+  font-size: 38px;
+  margin-bottom: 2%;
 }
 
 label {
@@ -85,7 +100,7 @@ th h5 {
   padding-top: 5px;
   font-weight: 600;
   letter-spacing: 1px;
-  font-size: 26px;
+  font-size: 24px;
 }
 
 
@@ -93,6 +108,13 @@ th h5 {
   width: 50%;
   margin-left: 25%;
   margin-top: 0.5em;
+  border-radius: 10px;
+}
+
+#cancel-new-button {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 1em;
   border-radius: 10px;
 }
 
@@ -129,17 +151,17 @@ td p{
 }
 
 #animal-list-button {
-  width: 80px;
+  width: 90px;
   border-radius: 7px;
-  margin-top: 25px;
-  width: 60%;
+  margin-top: 23px;
+  font-weight: 600;
 }
 
 #adopted-list-button {
-  width: 80px;
+  width: 90px;
   border-radius: 7px;
-  margin-top: 25px;
-  width: 60%;
+  margin-top: 23px;
+  font-weight: 600;
 }
 
 #edit-form-button {
@@ -160,5 +182,6 @@ td p{
 .button-td-img {
   text-align: center;
 }
+
 
 
