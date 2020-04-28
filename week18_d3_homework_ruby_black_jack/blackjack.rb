@@ -1,4 +1,4 @@
-# Player Class
+# Player class
 class Player
 	attr_accessor :name, :hand, :bankroll, :total
 	def initialize name, hand, bankroll, total
