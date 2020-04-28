@@ -84,3 +84,25 @@ p colors.reverse
 colors.each {|color| p color.upcase}
 
 # GitHub Commit 3
+
+
+# Methods:
+
+# 1:
+def find_area height, width
+    area = height * width
+    p area
+end
+find_area 3, 5
+
+# 2:
+nums = [5, 5, 6, 7, 2, 4, 3, 2, 1, 9, 7, 6, 0, 0]
+
+def multiply_each_by_five arr
+    arr.each{|i| p i * 5}
+end
+multiply_each_by_five nums
+
+# GitHub Commit 4
+
+
