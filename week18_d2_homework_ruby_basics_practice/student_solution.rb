@@ -141,10 +141,25 @@ print_item_sums book, lamp
 
 
 # Solving Problems with Ruby
-
-# Euler Problem 1
+# Euler Problem 1:
 sum = 0
 (1...1000).each do |i|
     sum += 1 if (i % 3 == 0 || i % 5 == 0)
 end
 puts sum
+
+# Primes:
+# 1:
+require 'prime'
+def check_prime? num
+    Prime.prime?(num)
+end
+p check_prime? 20
+
+# 2:
+def get_primes limit
+    (1..limit).each do |i|
+        p Prime.prime?(i)
+    end
+end 
+get_primes 10
