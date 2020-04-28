@@ -69,3 +69,18 @@ p nums.reject {|i| i % 3 != 0}
 p nums.select {|i| i % 5 == 0}
 
 # GitHub Commit 2
+
+
+# Color Array: 
+colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+
+# 1:
+p colors.sample
+
+# 2:
+p colors.reverse
+
+# 3:
+colors.each {|color| p color.upcase}
+
+# GitHub Commit 3
