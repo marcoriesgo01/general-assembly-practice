@@ -105,4 +105,38 @@ multiply_each_by_five nums
 
 # GitHub Commit 4
 
+# Methods With a Hash:
+book = {
+  title: 'The Great Gatsby',
+  author: 'F Scott Fitzgerald',
+  year: 1925,
+  price: 10
+}
+
+lamp = {
+  type: 'reading',
+  brand: 'Ikea',
+  price: 25
+}
+
+table = {
+  type: 'bed side',
+  brand: 'Crate & Barrel',
+  color: 'birch',
+  price: 50
+}
+# 1.
+def print_price hash
+    p hash[:price]
+end
+print_price book
+
+# 2.
+def print_item_sums hash1, hash2
+    p hash1[:price] + hash2[:price]
+end
+print_item_sums book, lamp
+
+# GitHub Commit 5
+
 
