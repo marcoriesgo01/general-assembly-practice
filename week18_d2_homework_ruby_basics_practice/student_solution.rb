@@ -140,3 +140,11 @@ print_item_sums book, lamp
 # GitHub Commit 5
 
 
+# Solving Problems with Ruby
+
+# Euler Problem 1
+sum = 0
+(1...1000).each do |i|
+    sum += 1 if (i % 3 == 0 || i % 5 == 0)
+end
+puts sum
