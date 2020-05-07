@@ -1,7 +1,7 @@
 drop table if exists players;
 drop table if exists teams;
 
-create table teams(
+CREATE TABLE teams(
 	id serial primary key,
 	name varchar(255) not null,
 	stadium varchar(255),
@@ -11,7 +11,7 @@ create table teams(
 	active boolean
 );
 
-create table players(
+CREATE TABLE players(
 	id serial primary key,
 	name varchar(255) not null,
 	position varchar(255),

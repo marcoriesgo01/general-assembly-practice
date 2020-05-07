@@ -1,4 +1,4 @@
-INSERT INTO players (name, position, salary, team_id) VALUES ('Mario Williams', 'DE', 5900000, 1);
+INSERT INTO players (name, position, salary) VALUES ('Mario Williams', 'DE', 5900000, 1);
 INSERT INTO players (name, position, salary, team_id) VALUES ('Drayton Florence', 'CB', 4000000, 1);
 INSERT INTO players (name, position, salary, team_id) VALUES ('Shawne Merriman', 'LB', 4000000, 1);
 INSERT INTO players (name, position, salary, team_id) VALUES ('Dwan Edwards', 'DT', 3800000, 1);
