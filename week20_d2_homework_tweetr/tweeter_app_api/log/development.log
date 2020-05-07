@@ -94,3 +94,25 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 17ms (Views: 7.2ms | ActiveRecord: 7.7ms | Allocations: 4912)
 
 
+Started PUT "/tweets/3" for ::1 at 2020-05-07 14:43:24 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#update as */*
+  Parameters: {"tweet"=>{"title"=>"Marco"}, "id"=>"3"}
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:22:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:23:in `update'
+  [1m[36mTweet Update (2.4ms)[0m  [1m[33mUPDATE "tweets" SET "title" = $1 WHERE "tweets"."id" = $2[0m  [["title", "Marco"], ["id", 3]]
+  ↳ app/controllers/tweets_controller.rb:23:in `update'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:23:in `update'
+Completed 200 OK in 25ms (Views: 0.6ms | ActiveRecord: 10.2ms | Allocations: 7734)
+
+
+Started GET "/tweets" for ::1 at 2020-05-07 14:43:29 -0700
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:3:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 1208)
+
+
