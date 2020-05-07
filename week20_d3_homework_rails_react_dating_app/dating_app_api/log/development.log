@@ -79,3 +79,11 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 44ms (Views: 30.3ms | ActiveRecord: 10.7ms | Allocations: 10403)
 
 
+Started GET "/" for ::1 at 2020-05-07 15:27:33 -0700
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/marcoriesgo/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/railties-6.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/marcoriesgo/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/railties-6.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.0ms | Allocations: 484)
+Completed 200 OK in 17ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 2640)
+
+
