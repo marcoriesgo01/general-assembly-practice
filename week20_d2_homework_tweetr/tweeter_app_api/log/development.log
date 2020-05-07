@@ -73,3 +73,24 @@ Processing by TweetsController#show as HTML
 Completed 200 OK in 20ms (Views: 0.5ms | ActiveRecord: 7.1ms | Allocations: 5228)
 
 
+Started POST "/tweets" for ::1 at 2020-05-07 14:37:15 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#create as */*
+  Parameters: {"tweet"=>{"title"=>"Crentist", "author"=>"Dwight", "content"=>"My dentist's name is Crentist, maybe that's why he became a dentist"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:14:in `create'
+  [1m[36mTweet Create (0.6ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Crentist"], ["content", "My dentist's name is Crentist, maybe that's why he became a dentist"], ["author", "Dwight"]]
+  ↳ app/controllers/tweets_controller.rb:14:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:14:in `create'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 7.9ms | Allocations: 6357)
+
+
+Started GET "/tweets" for ::1 at 2020-05-07 14:37:33 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (1.0ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:3:in `index'
+Completed 200 OK in 17ms (Views: 7.2ms | ActiveRecord: 7.7ms | Allocations: 4912)
+
+

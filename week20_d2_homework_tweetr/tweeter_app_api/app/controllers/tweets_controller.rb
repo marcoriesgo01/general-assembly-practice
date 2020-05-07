@@ -7,6 +7,16 @@ class TweetsController < ApplicationController
       # Input comes in from the `params` hash
       render(json: Tweet.find(params[:id]))
     end
+
+    def create
+        tweet = Tweet.new(tweet_params)
+    
+        if tweet.save
+          render json: { tweet: tweet }
+        else
+          render(status: 422, json: { tweet: tweet, errors: tweet.errors })
+        end
+    end
   
     private
   
