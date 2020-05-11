@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
 code {
@@ -69,5 +71,9 @@ code {
 
 .form-group {
   display: inline-block;
+}
+
+#new-user-title {
+  margin-top: 10px;
 }
 

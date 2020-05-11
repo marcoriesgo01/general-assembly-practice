@@ -27,7 +27,7 @@ class NewDater extends Component {
     render() {
       return (
         <div className="form">
-          <h4>Add A New User</h4>
+          <h4 id="new-user-title">Add A New User</h4>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group col-md-3">
                 <label htmlFor="inputState">Name</label>
