@@ -80,3 +80,34 @@ Migrating to AddProductIdToReviews (20200511043825)
   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."product_id" = $1 LIMIT $2[0m  [["product_id", 1], ["LIMIT", 11]]
   [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."product_id" = $1 LIMIT $2[0m  [["product_id", 1], ["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-05-10 22:00:00 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/marcoriesgo/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/railties-6.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/marcoriesgo/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/railties-6.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.9ms | Allocations: 484)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 2640)
+
+
+Started GET "/products" for ::1 at 2020-05-10 22:00:03 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8:in `index'
+Completed 200 OK in 33ms (Views: 20.0ms | ActiveRecord: 6.9ms | Allocations: 8964)
+
+
+Started GET "/products/1/reviews" for ::1 at 2020-05-10 22:00:11 -0700
+Processing by ReviewsController#index as HTML
+  Parameters: {"product_id"=>"1"}
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+Completed 200 OK in 27ms (Views: 12.9ms | ActiveRecord: 7.6ms | Allocations: 8248)
+
+
+Started GET "/products/1" for ::1 at 2020-05-10 22:00:22 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:13:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 917)
+
+
