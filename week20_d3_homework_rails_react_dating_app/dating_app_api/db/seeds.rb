@@ -10,7 +10,7 @@ User.create([
         "name": "Ryan Gosling",
         "starsign": "Scorpio",
         "age": 35,
-        "img": "http://coolspotters.com/files/photos/591533/ryan-gosling-large.jpg?1357449177",
+        "img": "https://www.biography.com/.image/t_share/MTE5NTU2MzE1OTk1Mjc2ODEx/ryan-gosling-212045-1-402.jpg",
         "ltl": true
     },
     {
@@ -24,7 +24,7 @@ User.create([
         "name": "Hogan",
         "starsign": "Libra",
         "age": 40,
-        "img": "http://myfivebest.com/wp-content/uploads/2010/10/crime_crane.jpg",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Hulk_Hogan.jpg",
         "ltl": true
     },
     {
@@ -38,7 +38,7 @@ User.create([
         "name": "Idris Elba",
         "starsign": "Virgo",
         "age": 43,
-        "img": "http://www.ramascreen.com/wp-content/uploads/2015/01/Idris-Elba-Luther-150x150.jpg",
+        "img": "https://storage.googleapis.com/afs-prod/media/bfca1789021f487cb3cc52a0a440b128/800.jpeg",
         "ltl": true
     },
     {
@@ -59,7 +59,7 @@ User.create([
         "name": "Raisin",
         "starsign": "Gemni",
         "age": 20,
-        "img": "http://cdn.lifeinthefastlane.com/wp-content/uploads/2010/09/raisin.jpg",
+        "img": "https://cdn.britannica.com/57/131157-050-34C34151/raisins.jpg",
         "ltl": false
     },
     {
@@ -87,7 +87,7 @@ User.create([
         "name": "Mist",
         "starsign": "Aquarius",
         "age": 340000,
-        "img": "http://www.kidthesaurus.com/wp-content/uploads/2015/07/mist-150x150.jpg",
+        "img": "https://stmedia.stimg.co/ows_156530310691878.jpg?fit=crop&crop=faces",
         "ltl": true
     },
     {
@@ -115,7 +115,7 @@ User.create([
         "name": "Sauron",
         "starsign": "Taurus",
         "age": 198,
-        "img": "http://ia.media-imdb.com/images/M/MV5BMTc0Njk5NDQwNl5BMl5BanBnXkFtZTYwNTU3NTky._V1_SX150_CR0,0,150,150_.jpg",
+        "img": "https://vignette.wikia.nocookie.net/middleearthshadowofmordor7723/images/6/64/SauronTheBrightLordMissionImage.jpg/revision/latest?cb=20180326151346",
         "ltl": false
     }
 ])

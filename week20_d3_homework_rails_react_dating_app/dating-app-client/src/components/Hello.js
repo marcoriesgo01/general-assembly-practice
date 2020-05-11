@@ -22,7 +22,7 @@ class Daters extends Component {
           return (
             <div key={dater.id}>
               <h3>Name: {dater.name} </h3>
-              <img src={dater.img} alt={dater.name}/>
+              <img src={dater.img} alt={dater.name} className="dater-image"/>
               <h4>Starsign: {dater.starsign} </h4>
               <h4>Age: {dater.age} </h4>
               {dater.ltl

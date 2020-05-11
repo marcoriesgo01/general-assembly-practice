@@ -5,7 +5,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Daters />
+        <header>Title</header>
+          <div class="HolyGrail-body">
+            <nav class="HolyGrail-nav"><Daters /></nav>
+            <main class="HolyGrail-content">1</main>
+            <aside class="HolyGrail-ads"><Daters /></aside>
+          </div>
+        <footer>Footer</footer>
       </div>
     );
   }
