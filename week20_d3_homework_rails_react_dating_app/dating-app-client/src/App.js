@@ -6,11 +6,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>Title</header>
-          <div class="HolyGrail-body">
-            <nav class="HolyGrail-nav"><Daters /></nav>
-            <main class="HolyGrail-content">1</main>
-            <aside class="HolyGrail-ads"><Daters /></aside>
-          </div>
+          <Daters />
         <footer>Footer</footer>
       </div>
     );
