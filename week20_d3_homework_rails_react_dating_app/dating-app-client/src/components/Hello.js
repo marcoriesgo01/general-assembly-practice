@@ -19,15 +19,15 @@ class Daters extends Component {
   render () {
     return (
       <>
-        <div class="HolyGrail-body">
-          <nav class="HolyGrail-nav">
+        <div className="HolyGrail-body">
+          <nav className="HolyGrail-nav">
           {this.state.daters.filter((dater, index) => (index < 3)).map( dater => {
           return (
             <div key={dater.id}>
-              <h3>Name: {dater.name} </h3>
+              <h4>Name: {dater.name} </h4>
               <img src={dater.img} alt={dater.name} className="dater-image"/>
-              <h4>Starsign: {dater.starsign} </h4>
-              <h4>Age: {dater.age} </h4>
+              <h5>Starsign: {dater.starsign} </h5>
+              <h5>Age: {dater.age} </h5>
               {dater.ltl
                 ? <h5> Loves to laugh and have a good time</h5>
                 : <h5> Hates laughing, does not like having a good time</h5>
@@ -36,18 +36,18 @@ class Daters extends Component {
           )
           })}
           </nav>
-          <main class="HolyGrail-content">
-            center
+          <main className="HolyGrail-content">
+            Dating App Matches
           </main>
           
-          <aside class="HolyGrail-ads">
+          <aside className="HolyGrail-ads">
           {this.state.daters.filter((dater, index) => (index > 2)).map( dater => {
           return (
             <div key={dater.id}>
-              <h3>Name: {dater.name} </h3>
+              <h4>Name: {dater.name} </h4>
               <img src={dater.img} alt={dater.name} className="dater-image"/>
-              <h4>Starsign: {dater.starsign} </h4>
-              <h4>Age: {dater.age} </h4>
+              <h5>Starsign: {dater.starsign} </h5>
+              <h5>Age: {dater.age} </h5>
               {dater.ltl
                 ? <h5> Loves to laugh and have a good time</h5>
                 : <h5> Hates laughing, does not like having a good time</h5>

@@ -67,3 +67,7 @@ code {
   }
 }
 
+.form-group {
+  display: inline-block;
+}
+
